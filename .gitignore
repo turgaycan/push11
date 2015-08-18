@@ -1,0 +1,7 @@
+*.iml
+sshkey
+sshkey.pub
+.idea/*
+classes/*
+*/target/*
+*.jar

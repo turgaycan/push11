@@ -13,8 +13,8 @@
         <module>push11-client</module>
         <module>push11-engine</module>
         <module>push11</module>
-        <module>push11-web</module>
         <module>push11-data</module>
+        <module>push11-web</module>
         <module>push11-batch</module>
     </modules>
     <properties>
@@ -46,6 +46,7 @@
         <javax.servlet.jsp.jstl-api.version>1.2.1</javax.servlet.jsp.jstl-api.version>
         <validation-api.version>1.1.0.Final</validation-api.version>
         <guava.version>18.0</guava.version>
+        <hazelcast.version>3.5</hazelcast.version>
     </properties>
 
 

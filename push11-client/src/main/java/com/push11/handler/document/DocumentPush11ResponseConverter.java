@@ -9,7 +9,6 @@ import org.apache.http.entity.BasicHttpEntity;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.Reader;
 import java.nio.charset.Charset;
 

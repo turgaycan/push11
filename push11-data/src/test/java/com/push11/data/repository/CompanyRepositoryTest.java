@@ -1,7 +1,7 @@
 package com.push11.data.repository;
 
-import com.push11.data.repository.core.AbstractIntegration;
 import com.push11.domain.Company;
+import com.push11.data.repository.core.AbstractIntegration;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

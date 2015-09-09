@@ -24,7 +24,6 @@ public class Push11ModelHttpClient<T extends BaseModel> extends AbstractModelPus
     public Push11ModelHttpClient() {
     }
 
-
     public BaseModel getJsonAsModel(String endpointUrl) {
         CloseableHttpClient httpClient = instanceOfClient();
         HttpGet httpget = getHttpGet(endpointUrl);

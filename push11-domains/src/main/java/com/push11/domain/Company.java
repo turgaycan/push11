@@ -4,12 +4,16 @@ package com.push11.domain;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import javax.validation.constraints.NotNull;
+
 @Document(collection = "company")
 public class Company extends AbstractDocument{
 
+    @NotNull(message = "Company Id Filed should not be empty!")
     @Field("company_id")
     private String companyId;
 
+    @NotNull(message = "Company Name Filed should not be empty!")
     @Field("company_name")
     private String companyName;
 
@@ -22,7 +26,7 @@ public class Company extends AbstractDocument{
     }
 
     public Company(String id, String companyId, String companyName) {
-        super.setId(id);
+        setId(id);
         this.companyId = companyId;
         this.companyName = companyName;
     }

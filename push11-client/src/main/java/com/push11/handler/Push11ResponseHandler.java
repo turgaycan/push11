@@ -14,20 +14,22 @@ import java.nio.charset.Charset;
 public abstract class Push11ResponseHandler<T> {
     private static final Logger LOGGER = LoggerFactory.getLogger(Push11ResponseHandler.class);
 
-    protected abstract T jsonToObject(HttpEntity entity);
+    protected abstract T jsonToObject(HttpEntity entity) throws IOException;
 
-    protected Charset getCharset(HttpEntity entity){
+    protected abstract HttpEntity objectToJSON(T t);
+
+    protected Charset getCharset(HttpEntity entity) {
         ContentType contentType = ContentType.getOrDefault(entity);
         return contentType.getCharset();
     }
 
-    protected Reader buildInputStream(HttpEntity entity, Charset charset) {
+    protected Reader buildInputStream(HttpEntity entity, Charset charset) throws IOException {
         try {
             return new InputStreamReader(entity.getContent(), charset);
         } catch (IOException e) {
             LOGGER.error("IOException occurs when streaming.. {} ", e);
+            throw new IOException("IOException occurs when streaming");
         }
-        return null;
     }
 
     protected boolean invalidStatus(StatusLine statusLine) {

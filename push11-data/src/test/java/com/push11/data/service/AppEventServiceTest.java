@@ -1,7 +1,7 @@
 package com.push11.data.service;
 
-import com.push11.domain.AppEvent;
 import com.push11.data.repository.AppEventRepository;
+import com.push11.domain.AppEvent;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

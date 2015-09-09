@@ -6,7 +6,7 @@ import com.push11.domain.Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
+import static java.util.UUID.randomUUID;
 
 @RestController
 public class ApplicationDataController {
@@ -14,19 +14,20 @@ public class ApplicationDataController {
     @Autowired
     private ApplicationService applicationService;
 
-    @RequestMapping(value = "/application/user/new", method = RequestMethod.POST)
+    @RequestMapping(value = "/application/new", method = RequestMethod.POST)
     public void newApplication(@RequestBody Application application){
 
         applicationService.saveEntity(application);
     }
 
     @RequestMapping(value = "/application/{id}", method = RequestMethod.GET)
-    public @ResponseBody Application getApplication(@PathVariable String id){
+    public @ResponseBody
+    Application getApplication(@PathVariable String id){
         Application application = new Application();
-        application.setId(UUID.randomUUID().toString());
+        application.setId(randomUUID().toString());
         application.setAppId(id);
         application.setAppName("appname");
-        application.setCompany(new Company(UUID.randomUUID().toString(), "id", "companyName"));
+        application.setCompany(new Company(randomUUID().toString(), "id", "companyName"));
         return applicationService.saveEntity(application);
     }
 

@@ -22,6 +22,21 @@ import java.util.Map;
 public class Push11NotificationManager implements Push11Manager {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Push11NotificationManager.class);
+    private static final int RETRIES = 5;
+
+
+    /**
+     * @param deviceMap
+     * @param content
+     * @return if (true) return resultMap;
+     */
+    public Map<String, Boolean> pushAllPlatforms(Map<String, List<String>> deviceMap, Map<String, String> content) {
+        Map<String, Boolean> resultMap = new HashMap<String, Boolean>();
+        resultMap.putAll(pushAndroid(deviceMap.get(Push11NotificationConstants.PLATFORM_ANDROID), content));
+        resultMap.putAll(pushIOS(deviceMap.get(Push11NotificationConstants.PLATFORM_IOS), content));
+        return resultMap;
+
+    }
 
     /**
      * @param deviceList
@@ -33,7 +48,7 @@ public class Push11NotificationManager implements Push11Manager {
         Message gcmMessage = new Message.Builder().setData(content).build();
         MulticastResult result;
         try {
-            result = sender.send(gcmMessage, deviceList, 5);
+            result = sender.send(gcmMessage, deviceList, RETRIES);
             return prepareResult(result, deviceList);
         } catch (Exception e) {
             LOGGER.error("Exception occurs when sending push {}", e);
@@ -71,7 +86,7 @@ public class Push11NotificationManager implements Push11Manager {
                 } else {
                     resultMap.put(notification.getDevice().getToken(), false);
                     String invalidToken = notification.getDevice().getToken();
-                    //TODO turgay: IMPORTANT : Add code here to remove invalidToken from your database
+                    //TODO turgay: IMPORTANT : Add code here to remove invalidToken from database
                     LOGGER.info("Push notification exception {}, for invalidToken : {}" + notification.getException(), invalidToken);
                     ResponsePacket responsePacket = notification.getResponse();
                     if (responsePacket != null) {
@@ -97,22 +112,9 @@ public class Push11NotificationManager implements Push11Manager {
             payload.addCustomDictionary("mykey2", "");
             /* Push your custom payload */
         } catch (JSONException e) {
-            LOGGER.error("JSON exception occues {} ", e);
+            LOGGER.error("JSON exception occurs {} ", e);
         }
         return payload;
-    }
-
-    /**
-     * @param deviceMap
-     * @param content
-     * @return if (true) return resultMap;
-     */
-    public Map<String, Boolean> pushAllPlatforms(Map<String, List<String>> deviceMap, Map<String, String> content) {
-        Map<String, Boolean> resultMap = new HashMap<String, Boolean>();
-        resultMap.putAll(pushAndroid(deviceMap.get(Push11NotificationConstants.PLATFORM_ANDROID), content));
-        resultMap.putAll(pushIOS(deviceMap.get(Push11NotificationConstants.PLATFORM_IOS), content));
-        return resultMap;
-
     }
 
 }

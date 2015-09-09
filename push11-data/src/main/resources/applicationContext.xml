@@ -14,7 +14,7 @@
 
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-          p:locations="classpath:/mongo.properties"/>
+          p:locations="classpath*:/mongo.properties"/>
 
     <mongo:db-factory host="${mongo.db.host}" port="${mongo.db.port}" dbname="${mongo.db.name}" id="mongoDbFactory"/>
 
@@ -23,6 +23,5 @@
     </bean>
 
     <mongo:repositories base-package="com.push11.data.repository"/>
-
 
 </beans>

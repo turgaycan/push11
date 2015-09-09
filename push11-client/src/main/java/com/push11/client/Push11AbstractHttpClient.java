@@ -33,7 +33,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Push11AbstractHttpClient<T> extends AbstractDocumentPush11ResponseHandler {
 
@@ -130,33 +130,32 @@ public class Push11AbstractHttpClient<T> extends AbstractDocumentPush11ResponseH
         return responseEntity;
     }
 
-    public AbstractDocument postJsonAsDocument(String endpointUrl) {
+    public AbstractDocument postJsonAsDocument(String endpointUrl, AbstractDocument abstractDocument) throws IOException {
         CloseableHttpClient httpClient = instanceOfClient();
         HttpPost httpPost = getHttpPost(endpointUrl);
+        httpPost.setHeader("content-type", "application/json");
+        httpPost.setEntity(objectToJSON(abstractDocument));
         ResponseHandler<AbstractDocument> responseHandler = buildResponseHandler();
-        AbstractDocument responseEntity = null;
         try {
             return httpClient.execute(httpPost, responseHandler);
         } catch (IOException e) {
             LOGGER.error("IOException occurs when executing.. {}", e);
+            throw new IOException("IOException occurs when executing.. ");
         }
 
-        return responseEntity;
     }
 
     public Object postJSON(String urlToRead, Object o, Object returnObject) {
         CloseableHttpClient httpClient = instanceOfClient();
         try {
             HttpPost postRequest = getHttpPost(urlToRead);
-            postRequest.setHeader("content-type", "application/x-www-form-urlencoded");
+            postRequest.setHeader("content-type", "application/json");
 
             List<NameValuePair> nameValuePairs = new ArrayList<>();
 
             JsonElement elm = new GsonBuilder().create().toJsonTree(o);
             JsonObject jsonObject = elm.getAsJsonObject();
-            for (Map.Entry<String, JsonElement> entry : jsonObject.entrySet()) {
-                nameValuePairs.add(new BasicNameValuePair(entry.getKey(), entry.getValue().getAsString()));
-            }
+            nameValuePairs.addAll(jsonObject.entrySet().stream().map(entry -> new BasicNameValuePair(entry.getKey(), entry.getValue().getAsString())).collect(Collectors.toList()));
             try {
                 postRequest.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             } catch (UnsupportedEncodingException e) {

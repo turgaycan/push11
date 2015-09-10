@@ -38,7 +38,7 @@ public class ApplicationController extends BaseController<Application> {
     @RequestMapping(value = Push11EndpointPaths.ID, method = RequestMethod.GET)
     public
     @ResponseBody
-    Application getCompanyById(@PathVariable String version, @PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
+    Application getCompanyById(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
         if (StringUtils.isBlank(id)) {
             response.setStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION.value());
             return Application.newInstance();

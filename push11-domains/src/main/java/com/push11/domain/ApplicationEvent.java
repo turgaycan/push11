@@ -5,21 +5,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Map;
 
 
-@Document(collection = "appEvents")
-public class AppEvent extends AbstractDocument{
+@Document(collection = "application_event")
+public class ApplicationEvent extends AbstractDocument{
 
-	private Application app;
+	private Application application;
 	
 	private Map<String, String> eventValues;
 	
 	private String eventName;
 
-	public Application getApp() {
-		return app;
+	public Application getApplication() {
+		return application;
 	}
 
-	public void setApp(Application app) {
-		this.app = app;
+	public void setApplication(Application application) {
+		this.application = application;
 	}
 
 	public Map<String, String> getEventValues() {

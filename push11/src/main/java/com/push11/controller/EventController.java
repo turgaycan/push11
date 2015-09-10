@@ -29,13 +29,13 @@ public class EventController {
 
 	@RequestMapping(value = "/event/keys", method = RequestMethod.POST)
 	public @ResponseBody List<String> getEventKeys(@RequestBody GetEventKeysRequestModel request) {
-//		return service.getEventKeys(request.getApp(), request.getEventName());
+//		return service.getEventKeys(request.getApplication(), request.getName());
 		return null;
 	}
 
 	@RequestMapping(value = "/event/values/key", method = RequestMethod.POST)
 	public @ResponseBody List<String> getEventValuesForKey(@RequestBody GetEventValuesForKeyRequestModel request) {
-//		return service.getEventValuesForKey(request.getApp(), request.getEventName(), request.getEventKey());
+//		return service.getEventValuesForKey(request.getApplication(), request.getName(), request.getEventKey());
 		return null;
 	}
 

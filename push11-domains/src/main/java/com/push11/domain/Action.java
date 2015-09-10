@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
-@Document(collection = "actions")
+@Document(collection = "action")
 public class Action extends AbstractDocument {
 
 	@Reference

@@ -1,7 +1,7 @@
 package com.push11.data.service;
 
 import com.push11.data.repository.AppEventRepository;
-import com.push11.domain.AppEvent;
+import com.push11.domain.ApplicationEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +11,11 @@ public class AppEventService {
     @Autowired
     private AppEventRepository appEventRepository;
 
-    public AppEvent saveDocument(AppEvent appEvent){
-        return appEventRepository.save(appEvent);
+    public ApplicationEvent saveDocument(ApplicationEvent applicationEvent){
+        return appEventRepository.save(applicationEvent);
     }
 
-    public void delete(AppEvent appEvent) {
-        appEventRepository.delete(appEvent);
+    public void delete(ApplicationEvent applicationEvent) {
+        appEventRepository.delete(applicationEvent);
     }
 }

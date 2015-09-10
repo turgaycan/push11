@@ -31,14 +31,14 @@ public class CompanyRepositoryTest extends AbstractIntegration<Company> {
     public void shouldFindByCompanyId() {
         Company company = repository.findByCompanyId("2");
         assertThat(company.getCompanyId(), equalTo(company2.getCompanyId()));
-        assertThat(company.getCompanyName(), equalTo(company2.getCompanyName()));
+        assertThat(company.getName(), equalTo(company2.getName()));
     }
 
     @Test
     public void shouldFindByQueryName() {
         Company company = repository.findByQueryCompanyName("push12");
-        assertThat(company.getCompanyName(), equalTo(company4.getCompanyName()));
-        assertFalse(company.getCompanyName().equals(company3.getCompanyName()));
+        assertThat(company.getName(), equalTo(company4.getName()));
+        assertFalse(company.getName().equals(company3.getName()));
     }
 
     private void prepareCompanyTestData() {

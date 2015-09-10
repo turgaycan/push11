@@ -3,6 +3,7 @@ package com.push11.data.controller;
 import com.push11.data.service.ApplicationService;
 import com.push11.domain.Application;
 import com.push11.domain.Company;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,8 +27,8 @@ public class ApplicationDataController {
         Application application = new Application();
         application.setId(randomUUID().toString());
         application.setAppId(id);
-        application.setAppName("appname");
-        application.setCompany(new Company(randomUUID().toString(), "id", "companyName"));
+        application.setName("appname");
+        application.setCompany(new Company(randomUUID().toString(), RandomStringUtils.randomAlphanumeric(10)));
         return applicationService.saveEntity(application);
     }
 

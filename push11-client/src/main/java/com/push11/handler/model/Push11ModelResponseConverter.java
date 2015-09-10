@@ -1,9 +1,9 @@
-package com.push11.handler.document;
+package com.push11.handler.model;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.push11.domain.AbstractDocument;
 import com.push11.handler.Push11ResponseHandler;
+import com.push11.model.base.BaseModel;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.BasicHttpEntity;
 
@@ -12,24 +12,22 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.charset.Charset;
 
-public abstract class DocumentPush11ResponseConverter extends Push11ResponseHandler<AbstractDocument> {
+public abstract class Push11ModelResponseConverter extends Push11ResponseHandler<BaseModel> {
 
     @Override
-    protected AbstractDocument jsonToObject(HttpEntity entity) throws IOException {
+    protected BaseModel jsonToObject(HttpEntity entity) throws IOException {
         Gson gson = new GsonBuilder().create();
         Charset charset = getCharset(entity);
         Reader reader = buildInputStream(entity, charset);
-        return gson.fromJson(reader, AbstractDocument.class);
+        return gson.fromJson(reader, BaseModel.class);
     }
 
     @Override
-    protected HttpEntity objectToJSON(AbstractDocument abstractDocument) {
+    protected HttpEntity objectToJSON(BaseModel baseModel) {
         Gson gson = new GsonBuilder().create();
-        String objectAsString = gson.toJson(abstractDocument);
+        String objectAsString = gson.toJson(baseModel);
         BasicHttpEntity basicHttpEntity = new BasicHttpEntity();
         basicHttpEntity.setContent(new ByteArrayInputStream(objectAsString.getBytes()));
         return basicHttpEntity;
     }
-
-
 }

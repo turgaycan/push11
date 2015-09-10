@@ -1,7 +1,7 @@
 package com.push11.data.service;
 
-import com.push11.domain.AppEvent;
-import com.push11.domain.AppTag;
+import com.push11.domain.ApplicationEvent;
+import com.push11.domain.ApplicationTag;
 import com.push11.domain.Application;
 import com.push11.data.repository.AppEventRepository;
 import com.push11.data.repository.AppTagRepository;
@@ -22,12 +22,12 @@ public class WebApiServiceImpl implements WebApiService{
     public List<String> getAllTags(Application app) {
 
         List<String> list = new ArrayList<String>();
-        List<AppTag> appTagList = new ArrayList<AppTag>();
+        List<ApplicationTag> applicationTagList = new ArrayList<ApplicationTag>();
 
-        appTagList.addAll(appTagRepository.getTagsFindByApp(app));
+        applicationTagList.addAll(appTagRepository.getTagsFindByApp(app));
 
-        for (AppTag appTag : appTagList) {
-            list.addAll(appTag.getTagList());
+        for (ApplicationTag applicationTag : applicationTagList) {
+            list.addAll(applicationTag.getTagList());
         }
         return list;
     }
@@ -36,10 +36,10 @@ public class WebApiServiceImpl implements WebApiService{
     public List<String> getAllEvents(Application app) {
 
         Set<String> eventNameSet = new HashSet<String>();
-        List<AppEvent> appEventList = new ArrayList<AppEvent>();
-        appEventList.addAll(appEventRepository.getEventsFindByApp(app));
-        for (AppEvent appEvent : appEventList) {
-            eventNameSet.add(appEvent.getEventName());
+        List<ApplicationEvent> applicationEventList = new ArrayList<ApplicationEvent>();
+        applicationEventList.addAll(appEventRepository.getEventsFindByApp(app));
+        for (ApplicationEvent applicationEvent : applicationEventList) {
+            eventNameSet.add(applicationEvent.getEventName());
         }
 
         return new ArrayList<String>(eventNameSet);
@@ -50,10 +50,10 @@ public class WebApiServiceImpl implements WebApiService{
     public List<String> getEventKeys(Application app, String eventName) {
 
         Set<String> eventKeySet = new HashSet<String>();
-        List<AppEvent> appEventList = new ArrayList<AppEvent>();
-        appEventList.addAll(appEventRepository.getEventsFindByAppAndEventName(app, eventName));
-        for (AppEvent appEvent : appEventList) {
-            eventKeySet.addAll(appEvent.getEventValues().keySet());
+        List<ApplicationEvent> applicationEventList = new ArrayList<ApplicationEvent>();
+        applicationEventList.addAll(appEventRepository.getEventsFindByAppAndEventName(app, eventName));
+        for (ApplicationEvent applicationEvent : applicationEventList) {
+            eventKeySet.addAll(applicationEvent.getEventValues().keySet());
         }
 
         return new ArrayList<String>(eventKeySet);
@@ -63,11 +63,11 @@ public class WebApiServiceImpl implements WebApiService{
     public List<String> getEventValuesForKey(Application app, String eventName, String eventKey) {
 
         Set<String> eventValueSet = new HashSet<String>();
-        List<AppEvent> appEventList = new ArrayList<AppEvent>();
-        appEventList.addAll(appEventRepository.getEventsFindByAppAndEventName(app, eventName));
-        for (AppEvent appEvent : appEventList) {
-            if (appEvent.getEventValues().containsKey(eventKey)) {
-                eventValueSet.add(appEvent.getEventValues().get(eventKey));
+        List<ApplicationEvent> applicationEventList = new ArrayList<ApplicationEvent>();
+        applicationEventList.addAll(appEventRepository.getEventsFindByAppAndEventName(app, eventName));
+        for (ApplicationEvent applicationEvent : applicationEventList) {
+            if (applicationEvent.getEventValues().containsKey(eventKey)) {
+                eventValueSet.add(applicationEvent.getEventValues().get(eventKey));
             }
         }
         return new ArrayList<String>(eventValueSet);

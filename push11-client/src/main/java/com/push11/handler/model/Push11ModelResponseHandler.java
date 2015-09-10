@@ -14,9 +14,9 @@ import org.apache.http.impl.client.HttpClients;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class AbstractModelPush11ResponseHandler extends ModelPush11ResponseConverter {
+public abstract class Push11ModelResponseHandler extends Push11ModelResponseConverter {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractModelPush11ResponseHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Push11ModelResponseHandler.class);
 
     public ResponseHandler<BaseModel> buildResponseHandler() {
         return response -> {

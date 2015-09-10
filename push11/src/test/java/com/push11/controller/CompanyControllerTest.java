@@ -20,7 +20,7 @@ public class CompanyControllerTest {
 
     @Test
     public void shouldNotCreateNewCompanyIfPropertiesIsProper() {
-        Company company = new Company("", "1", " ");
+        Company company = new Company("1", " ");
         controller.registerCompany(company, response);
 //        verifyZeroInteractions(companyService);
     }

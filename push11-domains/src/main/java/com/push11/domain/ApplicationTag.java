@@ -4,19 +4,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(collection = "appTags")
-public class AppTag extends AbstractDocument{
+@Document(collection = "application_tag")
+public class ApplicationTag extends AbstractDocument{
 
-	private Application app;
+	private Application application;
 
 	private List<String> tagList;
 
-	public Application getApp() {
-		return app;
+	public Application getApplication() {
+		return application;
 	}
 
-	public void setApp(Application app) {
-		this.app = app;
+	public void setApplication(Application application) {
+		this.application = application;
 	}
 
 	public List<String> getTagList() {

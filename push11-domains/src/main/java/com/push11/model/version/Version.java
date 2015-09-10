@@ -39,4 +39,8 @@ public class Version implements Serializable{
     public void setSupported(boolean supported) {
         this.supported = supported;
     }
+
+    public boolean isNotSupported(){
+        return !isSupported();
+    }
 }

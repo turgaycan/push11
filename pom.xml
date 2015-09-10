@@ -47,6 +47,7 @@
         <validation-api.version>1.1.0.Final</validation-api.version>
         <guava.version>18.0</guava.version>
         <hazelcast.version>3.5</hazelcast.version>
+        <commons-validator.version>1.4.1</commons-validator.version>
     </properties>
 
 
@@ -86,6 +87,11 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpasyncclient-cache</artifactId>
             <version>${httpasyncclient-cache.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>${commons-validator.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>

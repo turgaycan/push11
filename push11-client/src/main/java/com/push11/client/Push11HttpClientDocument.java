@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.push11.domain.AbstractDocument;
-import com.push11.handler.document.AbstractDocumentPush11ResponseHandler;
+import com.push11.handler.document.Push11DocumentResponseHandler;
 import com.push11.util.Urls;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
@@ -35,17 +35,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Push11AbstractHttpClient<T> extends AbstractDocumentPush11ResponseHandler {
+public class Push11HttpClientDocument<T> extends Push11DocumentResponseHandler {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Push11AbstractHttpClient.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Push11HttpClientDocument.class);
 
     private Class<T> clazz;
 
-    public Push11AbstractHttpClient(final Class<T> clazz) {
+    public Push11HttpClientDocument(final Class<T> clazz) {
         this.clazz = clazz;
     }
 
-    public Push11AbstractHttpClient() {
+    public Push11HttpClientDocument() {
     }
 
     public CloseableHttpResponse get(String url) {

@@ -16,6 +16,9 @@ public class Push11EndpointPaths {
     public static final String TAG_NEW = TAG + NEW;
     public static final String ID = "/{id}";
     public static final String COMPANY = "/company";
+    public static final String V_COMPANY= VERSION + COMPANY;
+    public static final String COMPANY_NEW = COMPANY + NEW;
+
 
 
 

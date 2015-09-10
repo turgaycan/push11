@@ -5,17 +5,17 @@ import org.springframework.data.annotation.Reference;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document(collection = "events")
+@Document(collection = "event")
 public class Event extends AbstractDocument {
 
 	@Reference
 	private User user;
 
-	@Field("event_name")
-	private String eventName;
+	@Field("name")
+	private String name;
 	
-	@Field("app_event")
-	private AppEvent appEvent;
+	@Field("application_event")
+	private ApplicationEvent applicationEvent;
 
 	public User getUser() {
 		return user;
@@ -25,4 +25,19 @@ public class Event extends AbstractDocument {
 		this.user = user;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public ApplicationEvent getApplicationEvent() {
+		return applicationEvent;
+	}
+
+	public void setApplicationEvent(ApplicationEvent applicationEvent) {
+		this.applicationEvent = applicationEvent;
+	}
 }

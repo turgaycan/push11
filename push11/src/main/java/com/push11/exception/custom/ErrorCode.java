@@ -5,6 +5,8 @@ public enum ErrorCode {
 
     UNKNOWN_EXCEPTION("unknown", "Unknown Exception", 1000),
     VERSION_NOT_SUPPORTED("version", "Version not supported any more..", 2000),
+    VERSION_NOT_VALID("version", "Version is not valid", 2001),
+    VERSION_NOT_FOUND("version", "Version is not found", 2002),
     IO_EXCEPTION("io", "IO Exception", 3000);
 
     private final String type;

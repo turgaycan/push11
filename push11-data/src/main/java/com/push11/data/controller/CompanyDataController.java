@@ -21,7 +21,7 @@ public class CompanyDataController {
         @RequestMapping(value = Push11EndpointPaths.NEW, method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
         @ResponseStatus(value = HttpStatus.NO_CONTENT)
         public void registerCompany(@RequestBody Company company, HttpServletResponse response) {
-            if (StringUtils.isBlank(company.getCompanyName())) {
+            if (StringUtils.isBlank(company.getName())) {
                 response.setStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION.value());
                 return;
             }

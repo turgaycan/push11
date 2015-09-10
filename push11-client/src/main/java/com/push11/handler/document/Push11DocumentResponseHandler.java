@@ -9,9 +9,9 @@ import org.apache.http.client.ResponseHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class AbstractDocumentPush11ResponseHandler extends DocumentPush11ResponseConverter {
+public abstract class Push11DocumentResponseHandler extends Push11DocumentResponseConverter {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractDocumentPush11ResponseHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Push11DocumentResponseHandler.class);
 
     public ResponseHandler<AbstractDocument> buildResponseHandler() {
         return response -> {

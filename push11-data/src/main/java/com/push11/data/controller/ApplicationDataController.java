@@ -26,7 +26,6 @@ public class ApplicationDataController {
     Application getApplication(@PathVariable String id){
         Application application = new Application();
         application.setId(randomUUID().toString());
-        application.setAppId(id);
         application.setName("appname");
         application.setCompany(new Company(randomUUID().toString(), RandomStringUtils.randomAlphanumeric(10)));
         return applicationService.saveEntity(application);

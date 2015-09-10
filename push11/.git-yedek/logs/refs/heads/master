@@ -1,0 +1,17 @@
+0000000000000000000000000000000000000000 f060900c6351090079c95cfe7ddd5dcb485ec688 Turgay Can <turgay.can@n11.com> 1415303795 +0200	clone: from https://bitbucket.org/onur_taskin/push11
+f060900c6351090079c95cfe7ddd5dcb485ec688 c7068894e9c39dc33b21ec5213411afa2b7e55f3 Turgay Can <turgay.can@n11.com> 1415492595 +0200	pull --progress --no-stat -v --progress origin master: Fast-forward
+c7068894e9c39dc33b21ec5213411afa2b7e55f3 e56ce1740380b4d936d41a98780b0e6edd60e600 Turgay Can <turgay.can@n11.com> 1415492721 +0200	commit: added git ignore
+e56ce1740380b4d936d41a98780b0e6edd60e600 7badabafa33444fd9c9a494cfabd583094e9d4a9 Turgay Can <turgay.can@n11.com> 1415493006 +0200	commit: push11-init infrastructure
+7badabafa33444fd9c9a494cfabd583094e9d4a9 f580f09f799e393f12ea071e37ae02fc6dc31d9a Turgay Can <turgay.can@n11.com> 1415493190 +0200	commit: init-infrastructure , add test context for integration and unit
+f580f09f799e393f12ea071e37ae02fc6dc31d9a 82f12864d21c9609197ba6d5da7e8c8b06e6336d Turgay Can <turgay.can@n11.com> 1415493424 +0200	commit: revised context xmls
+82f12864d21c9609197ba6d5da7e8c8b06e6336d e576f31bd047bc6b76ec0f488f5bbe03f1f1fe90 Turgay Can <turgay.can@n11.com> 1415636765 +0200	commit: last changes
+e576f31bd047bc6b76ec0f488f5bbe03f1f1fe90 991c01f45c760ea1ea59e87c1c3ffb80ae91d5c4 Turgay Can <turgay.can@n11.com> 1415636791 +0200	merge origin/master: Merge made by the 'recursive' strategy.
+991c01f45c760ea1ea59e87c1c3ffb80ae91d5c4 8989ba3fa1f3e81c0794ff27e29ef9d55f7735cc Turgay Can <turgay.can@n11.com> 1415636868 +0200	commit: added git ignore
+8989ba3fa1f3e81c0794ff27e29ef9d55f7735cc 10fddb767a0cba01b29942a99ab0cdac5af15f23 Turgay Can <turgay.can@n11.com> 1415698741 +0200	commit: push11-init infrastructure
+10fddb767a0cba01b29942a99ab0cdac5af15f23 fbdd4e235fd315ebe0833ae06ac72d488999c619 Turgay Can <turgay.can@n11.com> 1415998716 +0200	pull --progress --no-stat -v --progress origin master: Fast-forward
+fbdd4e235fd315ebe0833ae06ac72d488999c619 5eaf483e47a761add82e9d70cfce80be01767dc2 Turgay Can <turgay.can@n11.com> 1415999444 +0200	commit: add rest controller and remove xml binding api
+5eaf483e47a761add82e9d70cfce80be01767dc2 97e2f17c1eee1ade076f3754e56e6692954e1e50 Turgay Can <turgay.can@n11.com> 1415999899 +0200	commit: fix mapping urls standart
+97e2f17c1eee1ade076f3754e56e6692954e1e50 7807584738ca61363b5fdf6e56c8ec51da50fad3 Turgay Can <turgay.can@n11.com> 1416009857 +0200	commit: add rest controller and remove xml binding api
+7807584738ca61363b5fdf6e56c8ec51da50fad3 4d07dc9edfb49f6bb4699a4cb1e592699a8e3d44 Turgay Can <turgay.can@n11.com> 1441805144 +0300	commit: add push11 module to bitbucket
+4d07dc9edfb49f6bb4699a4cb1e592699a8e3d44 41ba04378d5b864ec8ad22f72765557968c9358b Turgay Can <turgay.can@n11.com> 1441805201 +0300	merge origin/master: Merge made by the 'recursive' strategy.
+41ba04378d5b864ec8ad22f72765557968c9358b 0fdf5deda7fdf6456ea82e8ec35b51a02209c323 Turgay Can <turgay.can@n11.com> 1441836237 +0300	commit: add push11 module to bitbucket

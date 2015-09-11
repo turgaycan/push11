@@ -1,6 +1,6 @@
-package com.push11.handler.document;
+package com.push11.handler;
 
-import com.push11.domain.AbstractDocument;
+import com.push11.handler.converter.AbstractPush11ResponseConverter;
 import org.apache.http.HttpEntity;
 import org.apache.http.StatusLine;
 import org.apache.http.client.ClientProtocolException;
@@ -9,11 +9,15 @@ import org.apache.http.client.ResponseHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class Push11DocumentResponseHandler extends Push11DocumentResponseConverter {
+public abstract class AbstractPush11ResponseBuilder<T> extends AbstractPush11ResponseConverter<T> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Push11DocumentResponseHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractPush11ResponseBuilder.class);
 
-    public ResponseHandler<AbstractDocument> buildResponseHandler() {
+    public AbstractPush11ResponseBuilder(Class clazz) {
+        super(clazz);
+    }
+
+    public ResponseHandler<T> buildResponseHandler() {
         return response -> {
             StatusLine statusLine = response.getStatusLine();
             HttpEntity entity = response.getEntity();

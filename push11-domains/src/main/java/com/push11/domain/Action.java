@@ -1,5 +1,6 @@
 package com.push11.domain;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Reference;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -9,43 +10,36 @@ import java.util.Date;
 @Document(collection = "action")
 public class Action extends AbstractDocument {
 
-	@Reference
-	private User user;
+	private static final long serialVersionUID = 4902372770872634703L;
+
+	@Field("action_id")
+	@Id
+	private String actionId;
 
 	@Field("action_type")
 	private String actionType;
 
-	@Field("c_date")
+	@Field("create_date")
 	private Date createDate;
 
-	private boolean isSucceed;
+	private boolean succeed;
 
-	private boolean isOpened;
+	private boolean opened;
 
 	private String content;
 
-	public boolean isSucceed() {
-		return isSucceed;
+	@Reference
+	private User user;
+
+	public Action() {
 	}
 
-	public void setSucceed(boolean isSucceed) {
-		this.isSucceed = isSucceed;
+	public String getActionId() {
+		return actionId;
 	}
 
-	public boolean isOpened() {
-		return isOpened;
-	}
-
-	public void setOpened(boolean isOpened) {
-		this.isOpened = isOpened;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
+	public void setActionId(String actionId) {
+		this.actionId = actionId;
 	}
 
 	public String getActionType() {
@@ -64,6 +58,30 @@ public class Action extends AbstractDocument {
 		this.createDate = createDate;
 	}
 
+	public boolean isSucceed() {
+		return succeed;
+	}
+
+	public void setSucceed(boolean succeed) {
+		this.succeed = succeed;
+	}
+
+	public boolean isOpened() {
+		return opened;
+	}
+
+	public void setOpened(boolean opened) {
+		this.opened = opened;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -71,5 +89,4 @@ public class Action extends AbstractDocument {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
 }

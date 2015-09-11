@@ -30,7 +30,7 @@ public class CompanyRepositoryTest extends AbstractIntegration<Company> {
     @Test
     public void shouldFindByCompanyId() {
         Company company = repository.findByCompanyId("2");
-        assertThat(company.getId(), equalTo(company2.getId()));
+        assertThat(company.getCompanyId(), equalTo(company2.getCompanyId()));
         assertThat(company.getName(), equalTo(company2.getName()));
     }
 

@@ -1,17 +1,21 @@
 package com.push11.domain;
 
-import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Reference;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
-import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotNull;
 
-@Validated
-@JsonSerialize
 @Document(collection = "application")
 public class Application extends AbstractDocument{
+
+	private static final long serialVersionUID = 2508593190436931705L;
+
+	@Id
+	@NotNull(message = "Application Id Filed should not be empty!")
+	@Field(value = "application_id")
+	private String applicationId;
 
 	@NotNull(message = "Application Name Filed should not be empty!")
 	@Field("name")
@@ -21,13 +25,21 @@ public class Application extends AbstractDocument{
 	@Reference
 	private Company company;
 
-	public Application(String id, String name, Company company) {
-		super.setId(id);
+	public Application() {
+	}
+
+	public Application(String applicationId, String name, Company company) {
+		this.applicationId = applicationId;
 		this.name = name;
 		this.company = company;
 	}
 
-	public Application() {
+	public String getApplicationId() {
+		return applicationId;
+	}
+
+	public void setApplicationId(String applicationId) {
+		this.applicationId = applicationId;
 	}
 
 	public String getName() {

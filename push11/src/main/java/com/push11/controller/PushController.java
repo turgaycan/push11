@@ -16,7 +16,7 @@ public class PushController {
 	public @ResponseBody User getUserById(@PathVariable String id) {
 		
 		User user = new User();
-		user.setId("123");
+		user.setUserId("123");
 		return user;
 	}
 

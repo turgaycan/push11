@@ -16,19 +16,15 @@ public class ApplicationDataController {
     private ApplicationService applicationService;
 
     @RequestMapping(value = "/application/new", method = RequestMethod.POST)
-    public void newApplication(@RequestBody Application application){
-
+    public void newApplication(@RequestBody Application application) {
         applicationService.saveEntity(application);
     }
 
     @RequestMapping(value = "/application/{id}", method = RequestMethod.GET)
-    public @ResponseBody
-    Application getApplication(@PathVariable String id){
-        Application application = new Application();
-        application.setId(randomUUID().toString());
-        application.setName("appname");
-        application.setCompany(new Company(randomUUID().toString(), RandomStringUtils.randomAlphanumeric(10)));
-        return applicationService.saveEntity(application);
+    public
+    @ResponseBody
+    Application getApplication(@PathVariable String id) {
+        return applicationService.findById(id);
     }
 
 }

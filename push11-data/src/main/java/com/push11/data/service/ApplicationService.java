@@ -14,4 +14,8 @@ public class ApplicationService {
 	public Application saveEntity(Application application) {
 		return applicationRepository.save(application);
 	}
+
+	public Application findById(String id){
+		return applicationRepository.findOne(id);
+	}
 }

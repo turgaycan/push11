@@ -20,7 +20,7 @@ public class ApplicationValidator implements Validator {
         //ValidationUtils.rejectIfEmpty(errors, "", "");
         //Add custom validations..
 //        Application application = (Application) o;
-        ValidationUtils.rejectIfEmpty(errors, "appId", "NotNull.application.appId",  new Object[]{"bla bla"}, "boş ol..");
+        ValidationUtils.rejectIfEmpty(errors, "applicationId", "NotNull.application.appId",  new Object[]{"bla bla"}, "boş ol..");
 
         if(errors.hasErrors()){
             try {

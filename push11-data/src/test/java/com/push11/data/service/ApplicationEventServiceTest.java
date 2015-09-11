@@ -1,7 +1,7 @@
 package com.push11.data.service;
 
 import com.push11.domain.ApplicationEvent;
-import com.push11.data.repository.AppEventRepository;
+import com.push11.data.repository.ApplicationEventRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -15,7 +15,7 @@ public class ApplicationEventServiceTest {
     private AppEventService service;
 
     @Mock
-    private AppEventRepository appEventRepository;
+    private ApplicationEventRepository applicationEventRepository;
 
 
     @Test

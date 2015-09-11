@@ -1,41 +1,48 @@
 package com.push11.domain;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Map;
 
 
 @Document(collection = "application_event")
-public class ApplicationEvent extends AbstractDocument{
+public class ApplicationEvent extends AbstractDocument {
 
-	private Application application;
-	
-	private Map<String, String> eventValues;
-	
-	private String eventName;
+    private static final long serialVersionUID = 2197296246923069716L;
 
-	public Application getApplication() {
-		return application;
-	}
+    private Application application;
 
-	public void setApplication(Application application) {
-		this.application = application;
-	}
+    private Map<String, String> eventValues;
 
-	public Map<String, String> getEventValues() {
-		return eventValues;
-	}
+    @Field(value = "event_name")
+    private String eventName;
 
-	public void setEventValues(Map<String, String> eventValues) {
-		this.eventValues = eventValues;
-	}
+    public ApplicationEvent() {
+    }
 
-	public String getEventName() {
-		return eventName;
-	}
+    public Application getApplication() {
+        return application;
+    }
 
-	public void setEventName(String eventName) {
-		this.eventName = eventName;
-	}
-	
+    public void setApplication(Application application) {
+        this.application = application;
+    }
+
+    public Map<String, String> getEventValues() {
+        return eventValues;
+    }
+
+    public void setEventValues(Map<String, String> eventValues) {
+        this.eventValues = eventValues;
+    }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
 }

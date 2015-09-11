@@ -32,17 +32,18 @@ public class ApplicationController extends BaseController<Application> {
             response.setStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION.value());
             return;
         }
-        postDocument(request.getRequestURI(), application);
+        postJSON(request.getRequestURI(), application);
     }
 
     @RequestMapping(value = Push11EndpointPaths.ID, method = RequestMethod.GET)
     public
     @ResponseBody
-    Application getCompanyById(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
+    Application getApplicationById(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
         if (StringUtils.isBlank(id)) {
             response.setStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION.value());
             return Application.newInstance();
         }
-        return getDocument(request.getRequestURI());
+        return getJSON(request.getRequestURI());
+
     }
 }

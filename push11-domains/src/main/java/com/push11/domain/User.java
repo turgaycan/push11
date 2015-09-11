@@ -1,22 +1,31 @@
 package com.push11.domain;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
 @Document(collection = "user")
 public class User extends AbstractDocument {
 
+    private static final long serialVersionUID = 563486874176901648L;
+
+    @Id
+    @NotNull(message = "User Id Filed should not be empty!")
+    @Field(value = "user_id")
+    private String userId;
+
     @Field("registration_id")
-    private String regId;
+    private String registrationId;
 
     @Field("buyer_id")
     private String buyerId;
 
-    @Field("device_d")
+    @Field("device_id")
     private String deviceId;
 
     @Field("os_type")
@@ -40,12 +49,23 @@ public class User extends AbstractDocument {
     @DBRef(lazy = true)
     private Application app;
 
-    public String getRegId() {
-        return regId;
+    public User() {
     }
 
-    public void setRegId(String regId) {
-        this.regId = regId;
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getRegistrationId() {
+        return registrationId;
+    }
+
+    public void setRegistrationId(String registrationId) {
+        this.registrationId = registrationId;
     }
 
     public String getBuyerId() {
@@ -119,5 +139,4 @@ public class User extends AbstractDocument {
     public void setApp(Application app) {
         this.app = app;
     }
-
 }

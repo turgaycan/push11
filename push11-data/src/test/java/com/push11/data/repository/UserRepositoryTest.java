@@ -31,8 +31,8 @@ public class UserRepositoryTest extends AbstractIntegration<User> {
 		User userDb1 = repository.save(user1);
 		User userDb2 = repository.save(user2);
 
-		assertTrue(userDb1.getRegId().equals((user1.getRegId())));
-		assertThat(userDb2.getRegId(), equalTo(user2.getRegId()));
+		assertTrue(userDb1.getRegistrationId().equals((user1.getRegistrationId())));
+		assertThat(userDb2.getRegistrationId(), equalTo(user2.getRegistrationId()));
 	}
 
 	@Test
@@ -47,12 +47,12 @@ public class UserRepositoryTest extends AbstractIntegration<User> {
 		user1 = new User();
 		user1.setBuyerId("buyer1");
 		user1.setDeviceBrand("android");
-		user1.setRegId("regId1");
+		user1.setRegistrationId("regId1");
 
 		user2 = new User();
 		user2.setBuyerId("buyer2");
 		user2.setDeviceBrand("android");
-		user2.setRegId("regId2");
+		user2.setRegistrationId("regId2");
 	}
 
 }

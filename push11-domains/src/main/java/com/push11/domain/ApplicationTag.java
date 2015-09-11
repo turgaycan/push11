@@ -7,9 +7,14 @@ import java.util.List;
 @Document(collection = "application_tag")
 public class ApplicationTag extends AbstractDocument{
 
+	private static final long serialVersionUID = -3715874836188536271L;
+
 	private Application application;
 
 	private List<String> tagList;
+
+	public ApplicationTag() {
+	}
 
 	public Application getApplication() {
 		return application;

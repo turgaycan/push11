@@ -5,7 +5,8 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.push11.domain.AbstractDocument;
-import com.push11.handler.document.Push11DocumentResponseHandler;
+import com.push11.handler.AbstractPush11ResponseBuilder;
+import com.push11.model.base.BaseModel;
 import com.push11.util.Urls;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
@@ -35,17 +36,82 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Push11HttpClientDocument<T> extends Push11DocumentResponseHandler {
+public class Push11HttpClient<T> extends AbstractPush11ResponseBuilder<T> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Push11HttpClientDocument.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Push11HttpClient.class);
 
-    private Class<T> clazz;
-
-    public Push11HttpClientDocument(final Class<T> clazz) {
-        this.clazz = clazz;
+    public Push11HttpClient(Class clazz) {
+        super(clazz);
     }
 
-    public Push11HttpClientDocument() {
+    public T getJSON(String endpointUrl) throws IOException {
+        CloseableHttpClient httpClient = instanceOfClient();
+        HttpGet httpget = getHttpGet(endpointUrl);
+        ResponseHandler<T> handler = buildResponseHandler();
+        try {
+            return httpClient.execute(httpget, handler);
+        } catch (IOException e) {
+            LOGGER.error("IOException occurs when executing.. {}", e);
+            throw new IOException("IOException occurs when executing.. ");
+        }
+    }
+
+    public T postDocumentJSON(String endpointUrl, AbstractDocument document) throws IOException {
+        CloseableHttpClient httpClient = instanceOfClient();
+        HttpPost httpPost = getHttpPost(endpointUrl);
+        httpPost.setEntity(documentToJSON(document));
+        ResponseHandler<T> responseHandler = buildResponseHandler();
+        try {
+            return httpClient.execute(httpPost, responseHandler);
+        } catch (IOException e) {
+            LOGGER.error("IOException occurs when executing.. {}", e);
+            throw new IOException("IOException occurs when executing.. ");
+        }
+    }
+
+    public T postModelJSON(String endpointUrl, BaseModel model) throws IOException {
+        CloseableHttpClient httpClient = instanceOfClient();
+        HttpPost httpPost = getHttpPost(endpointUrl);
+        httpPost.setEntity(modelToJSON(model));
+        ResponseHandler<T> responseHandler = buildResponseHandler();
+        try {
+            return httpClient.execute(httpPost, responseHandler);
+        } catch (IOException e) {
+            LOGGER.error("IOException occurs when executing.. {}", e);
+            throw new IOException("IOException occurs when executing.. ");
+        }
+
+    }
+
+    public Object postJSON(String urlToRead, Object o, Object returnObject) {
+        CloseableHttpClient httpClient = instanceOfClient();
+        try {
+            HttpPost postRequest = getHttpPost(urlToRead);
+
+            List<NameValuePair> nameValuePairs = new ArrayList<>();
+
+            JsonElement elm = new GsonBuilder().create().toJsonTree(o);
+            JsonObject jsonObject = elm.getAsJsonObject();
+            nameValuePairs.addAll(jsonObject.entrySet().stream().map(entry -> new BasicNameValuePair(entry.getKey(), entry.getValue().getAsString())).collect(Collectors.toList()));
+            try {
+                postRequest.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            } catch (UnsupportedEncodingException e) {
+                LOGGER.error("UnsupportedEncodingException occurs when set entity {}", e);
+            }
+            ResponseHandler<String> responseHandler = new BasicResponseHandler();
+            try {
+                returnObject = httpClient.execute(postRequest, responseHandler);
+            } catch (IOException e) {
+                LOGGER.error("IOException occurs when executing post {}", e);
+            }
+        } finally {
+            try {
+                httpClient.close();
+            } catch (IOException e) {
+                LOGGER.error("IOException occurs when closing httpClient {}", e);
+            }
+        }
+        return returnObject;
     }
 
     public CloseableHttpResponse get(String url) {
@@ -116,77 +182,21 @@ public class Push11HttpClientDocument<T> extends Push11DocumentResponseHandler {
         return response;
     }
 
-
-    public AbstractDocument getJsonAsDocument(String endpointUrl) {
-        CloseableHttpClient httpClient = instanceOfClient();
-        HttpGet httpget = getHttpGet(endpointUrl);
-        ResponseHandler<AbstractDocument> handler = buildResponseHandler();
-        AbstractDocument responseEntity = null;
-        try {
-            return httpClient.execute(httpget, handler);
-        } catch (IOException e) {
-            LOGGER.error("IOException occurs when executing.. {}", e);
-        }
-        return responseEntity;
-    }
-
-    public AbstractDocument postJsonAsDocument(String endpointUrl, AbstractDocument abstractDocument) throws IOException {
-        CloseableHttpClient httpClient = instanceOfClient();
-        HttpPost httpPost = getHttpPost(endpointUrl);
-        httpPost.setHeader("content-type", "application/json");
-        httpPost.setEntity(objectToJSON(abstractDocument));
-        ResponseHandler<AbstractDocument> responseHandler = buildResponseHandler();
-        try {
-            return httpClient.execute(httpPost, responseHandler);
-        } catch (IOException e) {
-            LOGGER.error("IOException occurs when executing.. {}", e);
-            throw new IOException("IOException occurs when executing.. ");
-        }
-
-    }
-
-    public Object postJSON(String urlToRead, Object o, Object returnObject) {
-        CloseableHttpClient httpClient = instanceOfClient();
-        try {
-            HttpPost postRequest = getHttpPost(urlToRead);
-            postRequest.setHeader("content-type", "application/json");
-
-            List<NameValuePair> nameValuePairs = new ArrayList<>();
-
-            JsonElement elm = new GsonBuilder().create().toJsonTree(o);
-            JsonObject jsonObject = elm.getAsJsonObject();
-            nameValuePairs.addAll(jsonObject.entrySet().stream().map(entry -> new BasicNameValuePair(entry.getKey(), entry.getValue().getAsString())).collect(Collectors.toList()));
-            try {
-                postRequest.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-            } catch (UnsupportedEncodingException e) {
-                LOGGER.error("UnsupportedEncodingException occurs when set entity {}", e);
-            }
-            ResponseHandler<String> responseHandler = new BasicResponseHandler();
-            try {
-                returnObject = httpClient.execute(postRequest, responseHandler);
-            } catch (IOException e) {
-                LOGGER.error("IOException occurs when executing post {}", e);
-            }
-        } finally {
-            try {
-                httpClient.close();
-            } catch (IOException e) {
-                LOGGER.error("IOException occurs when closing httpClient {}", e);
-            }
-        }
-        return returnObject;
-    }
-
     private CloseableHttpClient instanceOfClient() {
         return HttpClients.createDefault();
     }
 
     private HttpGet getHttpGet(String endpointUrl) {
-        return new HttpGet(getUri(endpointUrl));
+        HttpGet httpGet = new HttpGet(getUri(endpointUrl));
+        httpGet.setHeader("content-type", "application/json");
+        return httpGet;
     }
 
     private HttpPost getHttpPost(String urlToRead) {
-        return new HttpPost(getUri(urlToRead));
+        HttpPost httpPost = new HttpPost(getUri(urlToRead));
+        httpPost.setHeader("content-type", "application/json");
+        return httpPost;
+
     }
 
     private String getUri(String endpointUrl) {

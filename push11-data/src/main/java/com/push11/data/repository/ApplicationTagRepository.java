@@ -8,10 +8,9 @@ import org.springframework.data.repository.RepositoryDefinition;
 
 import java.util.List;
 
-@RepositoryDefinition(domainClass = ApplicationTag.class, idClass = String.class)
-public interface AppTagRepository extends MongoRepository<ApplicationTag, String> {
+public interface ApplicationTagRepository extends MongoRepository<ApplicationTag, String> {
 
-	@Query("{app : ?0}")
+	@Query("{application : ?0}")
 	public List<ApplicationTag> getTagsFindByApp(Application app);
 
 }

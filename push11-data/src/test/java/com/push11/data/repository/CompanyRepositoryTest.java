@@ -11,27 +11,16 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
 
-public class CompanyRepositoryTest extends AbstractIntegration<Company> {
+public class CompanyRepositoryTest extends AbstractIntegration {
 
     @Autowired
     private CompanyRepository repository;
 
     private Company company1, company2, company3, company4, company5, company6;
 
-    public CompanyRepositoryTest() {
-        super(Company.class);
-    }
-
     @Before
     public void init() {
         prepareCompanyTestData();
-    }
-
-    @Test
-    public void shouldFindByCompanyId() {
-        Company company = repository.findByCompanyId("2");
-        assertThat(company.getCompanyId(), equalTo(company2.getCompanyId()));
-        assertThat(company.getName(), equalTo(company2.getName()));
     }
 
     @Test

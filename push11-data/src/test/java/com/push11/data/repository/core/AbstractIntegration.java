@@ -1,40 +1,38 @@
 package com.push11.data.repository.core;
 
 import org.junit.After;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:/applicationContext-test.xml" })
+@ContextConfiguration(locations = {"classpath:/applicationContext-test.xml"})
 @Configuration
-public abstract class AbstractIntegration<T> {
+public abstract class AbstractIntegration {
 
-	@Autowired
-	private MongoOperations mongoOperations;
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
-	private final Class<T> clazz;
+    @Value("${mongo.db.name}")
+    private String dbName;
 
-	public AbstractIntegration(final Class<T> clazz) {
-		this.clazz = clazz;
-	}
+    @Before
+    public void resetBefore() {
+        dropDb();
+    }
 
-	protected Class getClazz() {
-		return clazz;
-	}
+    @After
+    public void dropAfter() {
+        dropDb();
+    }
 
-	public void deleteCollection() {
-		if (mongoOperations.collectionExists(clazz.getSimpleName().toLowerCase())) {
-			mongoOperations.dropCollection(clazz);
-		}
-	}
-
-	@After
-	public void reset() {
-		deleteCollection();
-	}
+    private void dropDb() {
+        mongoTemplate.getDb().dropDatabase();
+    }
 
 }

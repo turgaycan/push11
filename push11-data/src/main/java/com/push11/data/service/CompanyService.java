@@ -14,4 +14,8 @@ public class CompanyService {
     public Company saveEntity(Company company){
         return companyRepository.save(company);
     }
+
+    public Company findById(String companyId){
+        return companyRepository.findOne(companyId);
+    }
 }

@@ -12,6 +12,8 @@
         <module>push11-domains</module>
         <module>push11-client</module>
         <module>push11-engine</module>
+        <module>push11-util</module>
+        <module>push11-authentication</module>
         <module>push11</module>
         <module>push11-data</module>
         <module>push11-web</module>
@@ -20,6 +22,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
+        <push.version>1.0</push.version>
         <junit.version>4.11</junit.version>
         <slf4j.version>1.7.7</slf4j.version>
         <commons-collections.version>3.2.1</commons-collections.version>
@@ -34,6 +37,7 @@
         <powermock-api-mockito.version>1.5.6</powermock-api-mockito.version>
         <commons-codec.version>1.9</commons-codec.version>
         <spring.version>4.2.1.RELEASE</spring.version>
+        <spring-security-web.version>4.0.2.RELEASE</spring-security-web.version>
         <spring-data-mongodb.version>1.6.0.RELEASE</spring-data-mongodb.version>
         <jackson-databind.version>2.4.2</jackson-databind.version>
         <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
@@ -98,7 +102,6 @@
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
         </dependency>
-
         <!-- JSON-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -168,5 +171,32 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <developers>
+        <developer>
+            <id>turgay</id>
+            <name>turgay can</name>
+            <email>turgay.can@n11.com</email>
+            <roles>
+                <role>project architect</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>cenk</id>
+            <name>cenk tuzun</name>
+            <email>cenk.tuzun@n11.com</email>
+            <roles>
+                <role>project lead</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>onur</id>
+            <name>onur taskin</name>
+            <email>onur.taskin@n11.com</email>
+            <roles>
+                <role>project lead</role>
+            </roles>
+        </developer>
+    </developers>
 
 </project>

@@ -16,6 +16,11 @@ public class ApplicationTag extends AbstractDocument{
 	public ApplicationTag() {
 	}
 
+	public ApplicationTag(Application application, List<String> tagList) {
+		this.application = application;
+		this.tagList = tagList;
+	}
+
 	public Application getApplication() {
 		return application;
 	}

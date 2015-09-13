@@ -15,7 +15,6 @@
     <properties>
         <gcm-server.version>1.0.2</gcm-server.version>
         <javapns-jdk16.version>2.2.1</javapns-jdk16.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>

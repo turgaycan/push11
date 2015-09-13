@@ -13,19 +13,22 @@
     <version>1.0</version>
     <name>push11</name>
 
-
-
     <dependencies>
         <!-- Projects -->
         <dependency>
             <groupId>com.push11</groupId>
             <artifactId>push11-engine</artifactId>
-            <version>1.0</version>
+            <version>${push.version}</version>
         </dependency>
         <dependency>
             <groupId>com.push11</groupId>
             <artifactId>push11-client</artifactId>
-            <version>1.0</version>
+            <version>${push.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.push11</groupId>
+            <artifactId>push11-authentication</artifactId>
+            <version>${push.version}</version>
         </dependency>
         <!-- Spring -->
         <dependency>
@@ -91,6 +94,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

@@ -1,5 +1,6 @@
 package com.push11.controller;
 
+import com.push11.controller.base.BaseController;
 import com.push11.domain.Company;
 import com.push11.util.Push11EndpointPaths;
 import org.apache.commons.lang3.StringUtils;

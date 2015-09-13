@@ -24,7 +24,7 @@ public class WebApiServiceImpl implements WebApiService{
         List<String> list = new ArrayList<String>();
         List<ApplicationTag> applicationTagList = new ArrayList<ApplicationTag>();
 
-        applicationTagList.addAll(applicationTagRepository.getTagsFindByApp(app));
+        applicationTagList.addAll(applicationTagRepository.findApplicationTagsByApplication(app));
 
         for (ApplicationTag applicationTag : applicationTagList) {
             list.addAll(applicationTag.getTagList());

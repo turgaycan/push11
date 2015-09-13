@@ -28,6 +28,10 @@ public class Application extends AbstractDocument{
 	public Application() {
 	}
 
+	public Application(String applicationId) {
+		this.applicationId = applicationId;
+	}
+
 	public Application(String applicationId, String name, Company company) {
 		this.applicationId = applicationId;
 		this.name = name;

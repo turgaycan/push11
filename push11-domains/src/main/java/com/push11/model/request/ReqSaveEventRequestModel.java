@@ -4,6 +4,7 @@ import com.push11.domain.Event;
 
 public class ReqSaveEventRequestModel extends BaseRequestModel {
 
+	private static final long serialVersionUID = -635509533097207181L;
 	private String pushId;
 	private Event event;
 

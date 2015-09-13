@@ -25,8 +25,6 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -37,8 +35,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Push11HttpClient<T> extends AbstractPush11ResponseBuilder<T> {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(Push11HttpClient.class);
 
     public Push11HttpClient(Class clazz) {
         super(clazz);

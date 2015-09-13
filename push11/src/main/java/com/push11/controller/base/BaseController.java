@@ -1,21 +1,16 @@
-package com.push11.controller;
+package com.push11.controller.base;
 
 import com.push11.client.Push11HttpClient;
 import com.push11.domain.AbstractDocument;
 import com.push11.exception.custom.ErrorCode;
 import com.push11.exception.custom.Push11Exception;
-import com.push11.service.VersionService;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.CloseableHttpResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.util.List;
 
-public class BaseController<T> {
-
-    @Autowired
-    protected VersionService versionService;
+public abstract class BaseController<T> {
 
     private final Class<T> clazz;
 
@@ -60,15 +55,4 @@ public class BaseController<T> {
         return push11DocumentHttpClient.postJSON(url, abstractDocument, returnObject);
     }
 
-    protected void findAndValidateVersion(String versionId) throws Push11Exception {
-        versionService.findVersion(versionId);
-    }
-
-
-//    @Override
-//    protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//        Map<String, String[]> parameterMap = request.getParameterMap();
-//        versionService.findVersion("");
-//        return null;
-//    }
 }

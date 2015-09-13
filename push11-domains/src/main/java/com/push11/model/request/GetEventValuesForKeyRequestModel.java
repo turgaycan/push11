@@ -4,6 +4,7 @@ import com.push11.domain.Application;
 
 public class GetEventValuesForKeyRequestModel extends BaseRequestModel {
 
+	private static final long serialVersionUID = 5405665664128789536L;
 	Application app;
 
 	String eventName;

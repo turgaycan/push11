@@ -16,8 +16,15 @@
         <!-- Projects -->
         <dependency>
             <groupId>com.push11</groupId>
-            <artifactId>push11-domains</artifactId>
-            <version>1.0</version>
+            <artifactId>push11-util</artifactId>
+            <version>${push.version}</version>
+        </dependency>
+        <!-- UTIL -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>

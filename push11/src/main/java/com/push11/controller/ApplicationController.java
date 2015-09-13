@@ -1,10 +1,12 @@
 package com.push11.controller;
 
+import com.push11.controller.base.BaseController;
 import com.push11.domain.Application;
 import com.push11.util.Push11EndpointPaths;
 import com.push11.validator.ApplicationValidator;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -22,11 +24,12 @@ public class ApplicationController extends BaseController<Application> {
     }
 
     @InitBinder
+
     protected void initBinder(WebDataBinder binder) {
         binder.setValidator(new ApplicationValidator());
     }
 
-    @RequestMapping(value = Push11EndpointPaths.NEW, method = RequestMethod.POST)
+    @RequestMapping(value = Push11EndpointPaths.NEW, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void registerCompany(@Valid @RequestBody Application application, HttpServletRequest request, HttpServletResponse response, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             response.setStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION.value());
@@ -40,10 +43,10 @@ public class ApplicationController extends BaseController<Application> {
     @ResponseBody
     Application getApplicationById(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
         if (StringUtils.isBlank(id)) {
-            response.setStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION.value());
+            response.setStatus(HttpStatus.BAD_REQUEST.value());
             return Application.newInstance();
         }
-        return getJSON(request.getRequestURI());
 
+        return getJSON(request.getRequestURI());
     }
 }

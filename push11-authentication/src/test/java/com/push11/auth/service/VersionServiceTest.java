@@ -1,4 +1,5 @@
-package com.push11.service;
+package com.push11.auth.service;
+
 
 import com.push11.exception.custom.ErrorCode;
 import com.push11.exception.custom.Push11VersionException;
@@ -28,7 +29,7 @@ public class VersionServiceTest {
     @Test
     public void shouldThrowPush11VersionExceptionIfVersionNotValid() {
         try {
-            service.findVersion("v2.33");
+            service.validateAndFindVersion("/v2.33/application/new");
             fail();
         } catch (Push11VersionException pve) {
             final ErrorCode errorCode = pve.getErrorCode();
@@ -41,7 +42,7 @@ public class VersionServiceTest {
     @Test
     public void shouldThrowPush11VersionExceptionIfVersionNotFound() {
         try {
-            service.findVersion("v3.1");
+            service.validateAndFindVersion("/v3.1/application/new");
             fail();
         } catch (Push11VersionException pve) {
             final ErrorCode errorCode = pve.getErrorCode();
@@ -54,7 +55,7 @@ public class VersionServiceTest {
     @Test
     public void shouldThrowPush11VersionExceptionIfVersionNotSupported() {
         try {
-            service.findVersion("v0.9");
+            service.validateAndFindVersion("/v0.9/application/new");
             fail();
         } catch (Push11VersionException pve) {
             final ErrorCode errorCode = pve.getErrorCode();
@@ -66,7 +67,7 @@ public class VersionServiceTest {
 
     @Test
     public void shouldFindAndGetVersion() {
-        Version version = service.findVersion("v3.0");
+        Version version = service.validateAndFindVersion("/v3.0/application/new");
 
         assertThat(version.getVersion(), is("v3.0"));
         assertThat(version.getVersionNumber(), is(3.0d));

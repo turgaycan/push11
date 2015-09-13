@@ -16,7 +16,7 @@ import java.io.Reader;
 import java.nio.charset.Charset;
 
 public abstract class AbstractPush11ResponseHandler<T> {
-    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractPush11ResponseHandler.class);
+    protected static final Logger LOGGER = LoggerFactory.getLogger(AbstractPush11ResponseHandler.class);
 
     public AbstractPush11ResponseHandler(final Class<T> clazz) {
         this.clazz = clazz;

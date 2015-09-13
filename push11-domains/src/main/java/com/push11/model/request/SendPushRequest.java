@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 public class SendPushRequest extends BaseRequestModel {
-	
+
+	private static final long serialVersionUID = -2838450680332157508L;
 	List<String> deviceList;
 	
 	Map<String, String> content;

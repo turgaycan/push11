@@ -14,6 +14,8 @@
         <context:exclude-filter type="regex" expression="com.push11.data.repository"/>
     </context:component-scan>
 
+    <bean id="pushManager" class="com.push11.manager.Push11NotificationManager"/>
+
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
           p:locations="classpath:/mongo_test.properties"/>

@@ -19,6 +19,7 @@
         <spring-integration-java-dsl.version>1.1.0.M1</spring-integration-java-dsl.version>
         <spring-boot.version>1.2.3.RELEASE</spring-boot.version>
         <zookeeper.version>3.4.6</zookeeper.version>
+        <spring-ntegration.version>4.2.0.RC1</spring-ntegration.version>
     </properties>
 
     <dependencies>
@@ -47,38 +48,33 @@
         <dependency>
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-core</artifactId>
-            <version>4.2.0.RC1</version>
+            <version>${spring-ntegration.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-stream</artifactId>
-            <version>4.2.0.RC1</version>
+            <version>${spring-ntegration.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-ip</artifactId>
-            <version>4.2.0.RC1</version>
+            <version>${spring-ntegration.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-http</artifactId>
-            <version>4.2.0.RC1</version>
+            <version>${spring-ntegration.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-file</artifactId>
-            <version>4.2.0.RC1</version>
+            <version>${spring-ntegration.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>${zookeeper.version}</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.apache.kafka</groupId>-->
-            <!--<artifactId>kafka-clients</artifactId>-->
-            <!--<version>${kafka_2.10.version}</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>

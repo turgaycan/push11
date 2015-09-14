@@ -5,26 +5,26 @@ import java.util.Map;
 
 public class SendPushRequest extends BaseRequestModel {
 
-	private static final long serialVersionUID = -2838450680332157508L;
-	List<String> userIdList;
-	
-	Map<String, String> content;
-	
-	public List<String> getUserIdList() {
-		return userIdList;
-	}
+    private static final long serialVersionUID = -2838450680332157508L;
+    List<String> userIds;
 
-	public void setUserIdList(List<String> userIdList) {
-		this.userIdList = userIdList;
-	}
+    Map<String, String> content;
 
-	public Map<String, String> getContent() {
-		return content;
-	}
+    public List<String> getUserIds() {
+        return userIds;
+    }
 
-	public void setContent(Map<String, String> content) {
-		this.content = content;
-	}
+    public void setUserIds(List<String> userIds) {
+        this.userIds = userIds;
+    }
+
+    public Map<String, String> getContent() {
+        return content;
+    }
+
+    public void setContent(Map<String, String> content) {
+        this.content = content;
+    }
 
 
 }

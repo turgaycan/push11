@@ -1,10 +1,14 @@
 package com.push11.data.service;
 
+import com.google.common.collect.Lists;
 import com.push11.data.repository.UserRepository;
 import com.push11.domain.User;
 import com.push11.model.request.ReqUpdateMemberIdModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Set;
 
 @Service
 public class UserService {
@@ -30,4 +34,17 @@ public class UserService {
         saveEntity(user);
     }
 
+    public List<User> findUserListByRegistrationIds(Set<String> userIdList) {
+        return Lists.newArrayList(userRepository.findAll(userIdList));
+    }
+
+    public List<String> convertUserToRegistrationIds(List<User> users){
+        List<String> registrationIds = Lists.newArrayList();
+        users.forEach(each -> registrationIds.add(each.getRegistrationId()));
+        return registrationIds;
+    }
+
+    public List<String> convertUserIdsToRegistrationIds(Set<String> userIdList){
+        return convertUserToRegistrationIds(findUserListByRegistrationIds(userIdList));
+    }
 }

@@ -43,9 +43,9 @@ public abstract class BaseController<T> {
     }
 
     protected T getJSON(String url, Class anyClass){
-        Push11HttpClient push11DocumentHttpClient = new Push11HttpClient(anyClass);
+        Push11HttpClient push11HttpClient = new Push11HttpClient(anyClass);
         try {
-            return (T) push11DocumentHttpClient.getJSON(url);
+            return (T) push11HttpClient.getJSON(url);
         } catch (IOException e) {
             throw new Push11Exception("io", ErrorCode.IO_EXCEPTION);
         }

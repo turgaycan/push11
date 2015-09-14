@@ -1,11 +1,13 @@
 package com.push11.data.service;
 
+import com.google.common.collect.Maps;
 import com.push11.data.repository.ActionRepository;
 import com.push11.data.repository.EventRepository;
 import com.push11.data.repository.UserRepository;
 import com.push11.domain.Action;
 import com.push11.domain.Event;
 import com.push11.domain.User;
+import com.push11.model.ActionType;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -93,8 +95,8 @@ public class ClientApiService {
 			boolean isSucceed = false;
 			User user = userRepository.findUserByRegistrationId(pushId);
 			Action action = new Action();
-			action.setActionType("push_type");
-			action.setContent(content);
+			action.setActionType(ActionType.PUSH);
+			action.setContent(Maps.newHashMap());
 			action.setCreateDate(new Date());
 			action.setOpened(false);
 			action.setSucceed(isSucceed);

@@ -39,17 +39,17 @@ public class Push11NotificationManager implements Push11Manager {
     }
 
     /**
-     * @param deviceList
+     * @param regIdList
      * @param content
      * @return if (true) return resultMap;
      */
-    public Map<String, Boolean> pushAndroid(List<String> deviceList, Map<String, String> content) {
+    public Map<String, Boolean> pushAndroid(List<String> regIdList, Map<String, String> content) {
         Sender sender = new Sender(Push11NotificationConstants.GCM_API_KEY);
         Message gcmMessage = new Message.Builder().setData(content).build();
         MulticastResult result;
         try {
-            result = sender.send(gcmMessage, deviceList, RETRIES);
-            return prepareResult(result, deviceList);
+            result = sender.send(gcmMessage, regIdList, RETRIES);
+            return prepareResult(result, regIdList);
         } catch (Exception e) {
             LOGGER.error("Exception occurs when sending push {}", e);
         }
@@ -68,16 +68,16 @@ public class Push11NotificationManager implements Push11Manager {
     }
 
     /**
-     * @param deviceList
+     * @param regIdList
      * @param content
      * @return if (true) return resultMap;
      */
-    public Map<String, Boolean> pushIOS(List<String> deviceList, Map<String, String> content) {
+    public Map<String, Boolean> pushIOS(List<String> regIdList, Map<String, String> content) {
 
         Map<String, Boolean> resultMap = new HashMap<String, Boolean>();
         try {
             PushNotificationPayload payload = preparePayload();
-            List<PushedNotification> notifications = Push.payload(payload, Push11NotificationConstants.APNS_KEYSTORE, Push11NotificationConstants.APNS_PASSWORD, false, deviceList);
+            List<PushedNotification> notifications = Push.payload(payload, Push11NotificationConstants.APNS_KEYSTORE, Push11NotificationConstants.APNS_PASSWORD, false, regIdList);
 
             for (PushedNotification notification : notifications) {
                 if (notification.isSuccessful()) {

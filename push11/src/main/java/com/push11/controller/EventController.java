@@ -41,7 +41,7 @@ public class EventController {
 
 	@RequestMapping(value = "/push/devices", method = RequestMethod.POST)
 		 public @ResponseBody Map<String, Boolean> getEventValuesForKey(@RequestBody SendPushRequest request) {
-//		return service.sendPushToDeviceList(request.getDeviceList(), request.getContent());
+//		return service.sendPushToDeviceList(request.getUserIdList(), request.getContent());
 		return null;
 	}
 

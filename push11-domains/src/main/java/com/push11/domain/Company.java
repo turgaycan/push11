@@ -13,7 +13,6 @@ public class Company extends AbstractDocument{
     private static final long serialVersionUID = -4105664450218754414L;
 
     @Id
-    @NotNull(message = "Company Id Filed should not be empty!")
     @Field(value = "company_id")
     private String companyId;
 

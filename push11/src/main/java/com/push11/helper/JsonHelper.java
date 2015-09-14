@@ -29,7 +29,7 @@ public class JsonHelper {
 //		content.put(CONTENT_DATA, "{}");
 //
 //		req.setContent(content);
-//		req.setDeviceList(deviceList);
+//		req.setUserIdList(deviceList);
 //
 //		Gson gson = new Gson();
 //		String json = gson.toJson(req);

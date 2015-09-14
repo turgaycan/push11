@@ -7,5 +7,5 @@ import org.springframework.data.mongodb.repository.Query;
 public interface UserRepository extends MongoRepository<User, String> {
 
 	@Query("{registration_id : ?0}")
-	public User findUserByRegId(String regId);
+	User findUserByRegistrationId(String registrationId);
 }

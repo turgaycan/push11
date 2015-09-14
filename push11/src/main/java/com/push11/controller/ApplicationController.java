@@ -24,12 +24,12 @@ public class ApplicationController extends BaseController<Application> {
     }
 
     @InitBinder
-
     protected void initBinder(WebDataBinder binder) {
         binder.setValidator(new ApplicationValidator());
     }
 
     @RequestMapping(value = Push11EndpointPaths.NEW, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void registerCompany(@Valid @RequestBody Application application, HttpServletRequest request, HttpServletResponse response, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             response.setStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION.value());

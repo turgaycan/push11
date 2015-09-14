@@ -6,16 +6,16 @@ import java.util.Map;
 public class SendPushRequest extends BaseRequestModel {
 
 	private static final long serialVersionUID = -2838450680332157508L;
-	List<String> deviceList;
+	List<String> userIdList;
 	
 	Map<String, String> content;
 	
-	public List<String> getDeviceList() {
-		return deviceList;
+	public List<String> getUserIdList() {
+		return userIdList;
 	}
 
-	public void setDeviceList(List<String> deviceList) {
-		this.deviceList = deviceList;
+	public void setUserIdList(List<String> userIdList) {
+		this.userIdList = userIdList;
 	}
 
 	public Map<String, String> getContent() {

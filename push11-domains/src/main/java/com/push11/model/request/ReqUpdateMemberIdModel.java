@@ -2,23 +2,23 @@ package com.push11.model.request;
 
 public class ReqUpdateMemberIdModel extends BaseRequestModel {
 
-	private static final long serialVersionUID = -3617194966910333317L;
-	private String pushId, memberId;
+    private static final long serialVersionUID = -3617194966910333317L;
+    private String registrationId;
+    private String buyerId;
 
-	public String getMemberId() {
-		return memberId;
-	}
+    public String getRegistrationId() {
+        return registrationId;
+    }
 
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
-	}
+    public void setRegistrationId(String registrationId) {
+        this.registrationId = registrationId;
+    }
 
-	public String getPushId() {
-		return pushId;
-	}
+    public String getBuyerId() {
+        return buyerId;
+    }
 
-	public void setPushId(String pushId) {
-		this.pushId = pushId;
-	}
-
+    public void setBuyerId(String buyerId) {
+        this.buyerId = buyerId;
+    }
 }

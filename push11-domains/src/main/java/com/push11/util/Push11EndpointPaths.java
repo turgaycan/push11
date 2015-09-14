@@ -20,6 +20,12 @@ public class Push11EndpointPaths {
     public static final String COMPANY_NEW = COMPANY + NEW;
     public static final String USER = "/user";
     public static final String V_USER = VERSION + USER;
+    public static final String UPDATE = "/update";
+    public static final String PUSH = "/push11";
+    public static final String V_PUSH = VERSION + PUSH;
+    public static final String ACTION = "/action";
+    public static final String NEW_ACTION = ACTION + NEW;
+    public static final String V_ACTION = VERSION + ACTION;
 
 
 }

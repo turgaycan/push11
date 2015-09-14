@@ -31,20 +31,20 @@ public class ClientApiService {
 	}
 
 	public void updateUserMemberId(String pushId, String memberId) {
-		User user = userRepository.findUserByRegId(pushId);
+		User user = userRepository.findUserByRegistrationId(pushId);
 		user.setBuyerId(memberId);
 		userRepository.save(user);
 	}
 
 	public void saveEvent(String pushId, Event event) {
-		User user = userRepository.findUserByRegId(pushId);
+		User user = userRepository.findUserByRegistrationId(pushId);
 		event.setUser(user);
 		eventRepository.save(event);
 	}
 
 	//TODO turgay: sor aşağıdaki metod duplike
 	public void addTags(String pushId, String... tags) {
-		User user = userRepository.findUserByRegId(pushId);
+		User user = userRepository.findUserByRegistrationId(pushId);
 		user = prepareTagListForUser(user, tags);
 		userRepository.save(user);
 	}
@@ -64,7 +64,7 @@ public class ClientApiService {
 
 	//TODO turgay: sor aşağıdaki metod duplike
 	public void setTasgs(String pushId, String... tags) {
-		User user = userRepository.findUserByRegId(pushId);
+		User user = userRepository.findUserByRegistrationId(pushId);
 
 		List<String> taglist = user.getTagList();
 		if (taglist == null) {
@@ -91,7 +91,7 @@ public class ClientApiService {
 		for (String pushId : pushIds) {
 			//false ise neden değişkene atanmış
 			boolean isSucceed = false;
-			User user = userRepository.findUserByRegId(pushId);
+			User user = userRepository.findUserByRegistrationId(pushId);
 			Action action = new Action();
 			action.setActionType("push_type");
 			action.setContent(content);

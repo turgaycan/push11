@@ -4,6 +4,7 @@ import com.push11.client.Push11HttpClient;
 import com.push11.domain.AbstractDocument;
 import com.push11.exception.custom.ErrorCode;
 import com.push11.exception.custom.Push11Exception;
+import com.push11.model.base.BaseModel;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.CloseableHttpResponse;
 
@@ -41,10 +42,28 @@ public abstract class BaseController<T> {
         }
     }
 
+    protected T getJSON(String url, Class anyClass){
+        Push11HttpClient push11DocumentHttpClient = new Push11HttpClient(anyClass);
+        try {
+            return (T) push11DocumentHttpClient.getJSON(url);
+        } catch (IOException e) {
+            throw new Push11Exception("io", ErrorCode.IO_EXCEPTION);
+        }
+    }
+
     protected T postJSON(String url, AbstractDocument document) throws Push11Exception {
         Push11HttpClient push11DocumentHttpClient = new Push11HttpClient(clazz);
         try {
             return (T) push11DocumentHttpClient.postDocumentJSON(url, document);
+        } catch (IOException e) {
+            throw new Push11Exception("io", ErrorCode.IO_EXCEPTION);
+        }
+    }
+
+    protected T postJSON(String url, BaseModel model) throws Push11Exception {
+        Push11HttpClient push11DocumentHttpClient = new Push11HttpClient(clazz);
+        try {
+            return (T) push11DocumentHttpClient.postModelJSON(url, model);
         } catch (IOException e) {
             throw new Push11Exception("io", ErrorCode.IO_EXCEPTION);
         }

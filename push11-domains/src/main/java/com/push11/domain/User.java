@@ -15,7 +15,6 @@ public class User extends AbstractDocument {
     private static final long serialVersionUID = 563486874176901648L;
 
     @Id
-    @NotNull(message = "User Id Filed should not be empty!")
     @Field(value = "user_id")
     private String userId;
 
@@ -142,5 +141,9 @@ public class User extends AbstractDocument {
 
     public void setApp(Application app) {
         this.app = app;
+    }
+
+    public static User newInstance(){
+        return new User();
     }
 }

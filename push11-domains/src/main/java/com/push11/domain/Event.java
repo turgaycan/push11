@@ -14,7 +14,6 @@ public class Event extends AbstractDocument {
 	private static final long serialVersionUID = -148547925922649692L;
 
 	@Id
-	@NotNull(message = "Event Id Filed should not be empty!")
 	@Field(value = "event_id")
 	private String eventId;
 

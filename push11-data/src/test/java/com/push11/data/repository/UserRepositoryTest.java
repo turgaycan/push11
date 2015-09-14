@@ -35,7 +35,7 @@ public class UserRepositoryTest extends AbstractIntegration {
     public void shouldFindUserByRegId() {
         repository.save(user1);
 
-        User user = repository.findUserByRegId("regId1");
+        User user = repository.findUserByRegistrationId("regId1");
         assertThat(user.getBuyerId(), equalTo(user1.getBuyerId()));
     }
 

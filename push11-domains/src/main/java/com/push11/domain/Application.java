@@ -13,7 +13,6 @@ public class Application extends AbstractDocument{
 	private static final long serialVersionUID = 2508593190436931705L;
 
 	@Id
-	@NotNull(message = "Application Id Filed should not be empty!")
 	@Field(value = "application_id")
 	private String applicationId;
 

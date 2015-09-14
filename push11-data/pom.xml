@@ -19,6 +19,11 @@
     <dependencies>
         <dependency>
             <groupId>com.push11</groupId>
+            <artifactId>push11-engine</artifactId>
+            <version>${push.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.push11</groupId>
             <artifactId>push11-authentication</artifactId>
             <version>${push.version}</version>
         </dependency>

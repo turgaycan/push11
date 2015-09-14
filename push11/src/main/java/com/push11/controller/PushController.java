@@ -4,6 +4,7 @@ import com.push11.controller.base.BaseController;
 import com.push11.domain.Action;
 import com.push11.domain.User;
 import com.push11.model.ActionType;
+import com.push11.model.request.RequestNotifyPushModel;
 import com.push11.model.request.SendPushRequest;
 import com.push11.service.Push11ManagerService;
 import com.push11.util.Push11EndpointPaths;
@@ -38,7 +39,7 @@ public class PushController extends BaseController<User> {
         }
         User user = getJSON("/v2.3/user/" + sendPushRequest.getUserIdList().get(0), User.class);
 
-        final Map<String, Boolean> resultMap =  push11ManagerService.push(user, sendPushRequest.getContent());
+        final Map<String, Boolean> resultMap = push11ManagerService.push(user, sendPushRequest.getContent());
         Action action = new Action();
         action.setActionType(ActionType.PUSH);
         action.setContent(sendPushRequest.getContent());

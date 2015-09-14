@@ -11,8 +11,12 @@ public class ActionService {
     @Autowired
     private ActionRepository actionRepository;
 
-    public void save(Action action){
+    public void save(Action action) {
         actionRepository.save(action);
+    }
+
+    public Action getActionFindByActionAndRegId(String actionGroupId, String regId) {
+        return actionRepository.getActionFindByActionAndRegId(actionGroupId, regId);
     }
 
 }

@@ -13,6 +13,7 @@ public class Push11EndpointPaths {
     public static final String APPLICATION = "/application";
     public static final String V_APPLICATION = VERSION + "/application";
     public static final String NEW = "/new";
+    public static final String NOTIFY = "/notify";
     public static final String TAG = "/tag";
     public static final String ID = "/{id}";
     public static final String COMPANY = "/company";

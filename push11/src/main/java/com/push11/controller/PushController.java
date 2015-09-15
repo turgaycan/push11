@@ -14,20 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @RestController
 @RequestMapping(value = {Push11EndpointPaths.PUSH, Push11EndpointPaths.V_PUSH})
-public class PushController extends BaseController<BaseModel> {
+public class PushController {
 
-    public PushController() {
-        super(BaseModel.class);
-    }
-
-    @RequestMapping(value = Push11EndpointPaths.NEW, method = RequestMethod.POST)
-    @ResponseStatus(org.springframework.http.HttpStatus.NO_CONTENT)
-    public void pushNotification(@RequestBody SendPushRequest sendPushRequest, HttpServletRequest request, HttpServletResponse response) {
-        if (CollectionUtils.isEmpty(sendPushRequest.getUserIds()) &&
-                MapUtils.isEmpty(sendPushRequest.getContent())) {
-            response.setStatus(HttpStatus.SC_BAD_REQUEST);
-            return;
-        }
-        postJSON(request.getRequestURI(), sendPushRequest);
-    }
 }

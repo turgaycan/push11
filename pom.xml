@@ -14,7 +14,6 @@
         <module>push11-engine</module>
         <module>push11-util</module>
         <module>push11-authentication</module>
-        <module>push11</module>
         <module>push11-data</module>
         <module>push11-web</module>
         <module>push11-batch</module>

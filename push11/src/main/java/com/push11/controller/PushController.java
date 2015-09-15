@@ -28,9 +28,6 @@ public class PushController extends BaseController<BaseModel> {
             response.setStatus(HttpStatus.SC_BAD_REQUEST);
             return;
         }
-
         postJSON(request.getRequestURI(), sendPushRequest);
-
     }
-
 }

@@ -22,7 +22,16 @@ import java.util.Map;
 public class Push11NotificationManager implements Push11Manager {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Push11NotificationManager.class);
+    private static Push11NotificationManager push11NotificationManager;
     private static final int RETRIES = 5;
+
+
+    public static Push11NotificationManager getInstance() {
+        if (push11NotificationManager == null) {
+            push11NotificationManager = new Push11NotificationManager();
+        }
+        return push11NotificationManager;
+    }
 
 
     /**
@@ -31,11 +40,10 @@ public class Push11NotificationManager implements Push11Manager {
      * @return if (true) return resultMap;
      */
     public Map<String, Boolean> pushAllPlatforms(Map<String, List<String>> deviceMap, Map<String, String> content) {
-        Map<String, Boolean> resultMap = new HashMap<String, Boolean>();
-        resultMap.putAll(pushAndroid(deviceMap.get(Push11NotificationConstants.PLATFORM_ANDROID), content));
-        resultMap.putAll(pushIOS(deviceMap.get(Push11NotificationConstants.PLATFORM_IOS), content));
-        return resultMap;
-
+        Map<String, Boolean> pushResultMap = new HashMap<String, Boolean>();
+        pushResultMap.putAll(pushAndroid(deviceMap.get(Push11NotificationConstants.PLATFORM_ANDROID), content));
+        pushResultMap.putAll(pushIOS(deviceMap.get(Push11NotificationConstants.PLATFORM_IOS), content));
+        return pushResultMap;
     }
 
     /**

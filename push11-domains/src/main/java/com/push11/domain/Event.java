@@ -7,57 +7,70 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.validation.constraints.NotNull;
+import java.util.Date;
+import java.util.Map;
 
 @Document(collection = "event")
 public class Event extends AbstractDocument {
 
-	private static final long serialVersionUID = -148547925922649692L;
+    private static final long serialVersionUID = -148547925922649692L;
 
-	@Id
-	@Field(value = "event_id")
-	private String eventId;
+    @Id
+    @Field(value = "event_id")
+    private String eventId;
 
-	@Reference
-	private User user;
+    @Reference
+    private User user;
 
-	@Field("name")
-	private String name;
-	
-	@Field("application_event")
-	private ApplicationEvent applicationEvent;
+    @Field("name")
+    private String name;
 
-	public Event() {
-	}
+    @Field("c_date")
+    private Date createDate;
 
-	public String getEventId() {
-		return eventId;
-	}
+    private Map<String, String> eventValues;
 
-	public void setEventId(String eventId) {
-		this.eventId = eventId;
-	}
 
-	public User getUser() {
-		return user;
-	}
+    public Event() {
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public String getEventId() {
+        return eventId;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public User getUser() {
+        return user;
+    }
 
-	public ApplicationEvent getApplicationEvent() {
-		return applicationEvent;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-	public void setApplicationEvent(ApplicationEvent applicationEvent) {
-		this.applicationEvent = applicationEvent;
-	}
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Map<String, String> getEventValues() {
+        return eventValues;
+    }
+
+    public void setEventValues(Map<String, String> eventValues) {
+        this.eventValues = eventValues;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 }

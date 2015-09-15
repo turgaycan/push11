@@ -4,9 +4,11 @@ import com.push11.data.service.UserService;
 import com.push11.domain.User;
 import com.push11.model.request.ReqUpdateMemberIdModel;
 import com.push11.util.Push11EndpointPaths;
+import com.push11.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +18,12 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(value = {Push11EndpointPaths.USER, Push11EndpointPaths.V_USER})
 public class UserDataController {
+
+
+    @InitBinder
+    protected void initBinder(WebDataBinder binder) {
+        binder.setValidator(new UserValidator());
+    }
 
     @Autowired
     private UserService userService;

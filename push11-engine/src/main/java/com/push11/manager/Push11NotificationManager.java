@@ -22,16 +22,8 @@ import java.util.Map;
 public class Push11NotificationManager implements Push11Manager {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Push11NotificationManager.class);
-    private static Push11NotificationManager push11NotificationManager;
     private static final int RETRIES = 5;
 
-
-    public static Push11NotificationManager getInstance() {
-        if (push11NotificationManager == null) {
-            push11NotificationManager = new Push11NotificationManager();
-        }
-        return push11NotificationManager;
-    }
 
 
     /**

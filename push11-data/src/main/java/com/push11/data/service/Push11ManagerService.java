@@ -12,9 +12,9 @@ import java.util.Map;
 public class Push11ManagerService {
 
     @Autowired
-    private Push11Manager push11Manager;
+    private Push11NotificationManager push11NotificationManager;
 
     public Map<String, Boolean> push(Map<String, List<String>> registrationIds, Map<String, String> contentMap) {
-        return Push11NotificationManager.getInstance().pushAllPlatforms(registrationIds, contentMap);
+        return push11NotificationManager.pushAllPlatforms(registrationIds, contentMap);
     }
 }

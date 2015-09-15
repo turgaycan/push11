@@ -34,17 +34,13 @@ public class UserService {
         saveEntity(user);
     }
 
-    public List<User> findUserListByRegistrationIds(Set<String> userIdList) {
-        return Lists.newArrayList(userRepository.findAll(userIdList));
+    public List<User> findUsersListByBuyerIds(List<String> userIdList) {
+        return Lists.newArrayList(userRepository.findUsersByBuyerId(userIdList));
     }
 
-    public List<String> convertUserToRegistrationIds(List<User> users){
+    public List<String> convertUserToRegistrationIds(List<User> users) {
         List<String> registrationIds = Lists.newArrayList();
         users.forEach(each -> registrationIds.add(each.getRegistrationId()));
         return registrationIds;
-    }
-
-    public List<String> convertUserIdsToRegistrationIds(Set<String> userIdList){
-        return convertUserToRegistrationIds(findUserListByRegistrationIds(userIdList));
     }
 }

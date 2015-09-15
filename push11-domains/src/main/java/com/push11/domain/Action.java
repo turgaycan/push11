@@ -33,6 +33,10 @@ public class Action extends AbstractDocument {
     @Reference
     private User user;
 
+    private String actionGroupId;
+
+    private Campaign campaign;
+
     public Action() {
     }
 
@@ -90,5 +94,21 @@ public class Action extends AbstractDocument {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getActionGroupId() {
+        return actionGroupId;
+    }
+
+    public void setActionGroupId(String actionGroupId) {
+        this.actionGroupId = actionGroupId;
+    }
+
+    public Campaign getCampaign() {
+        return campaign;
+    }
+
+    public void setCampaign(Campaign campaign) {
+        this.campaign = campaign;
     }
 }

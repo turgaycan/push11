@@ -1,5 +1,7 @@
 package com.push11.model.request;
 
+import com.push11.domain.Campaign;
+
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +11,8 @@ public class SendPushRequest extends BaseRequestModel {
     List<String> userIds;
 
     Map<String, String> content;
+
+    private Campaign campaign;
 
     public List<String> getUserIds() {
         return userIds;
@@ -26,5 +30,11 @@ public class SendPushRequest extends BaseRequestModel {
         this.content = content;
     }
 
+    public Campaign getCampaign() {
+        return campaign;
+    }
 
+    public void setCampaign(Campaign campaign) {
+        this.campaign = campaign;
+    }
 }

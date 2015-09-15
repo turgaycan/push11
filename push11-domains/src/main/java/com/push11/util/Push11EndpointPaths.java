@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public class Push11EndpointPaths {
 
+
     private Push11EndpointPaths() {
     }
 
@@ -13,8 +14,10 @@ public class Push11EndpointPaths {
     public static final String APPLICATION = "/application";
     public static final String V_APPLICATION = VERSION + "/application";
     public static final String NEW = "/new";
+    public static final String ALL = "/all";
     public static final String NOTIFY = "/notify";
-    public static final String TAG = "/tag";
+    public static final String SET_TAG = "/set/tag";
+    public static final String ADD_TAG = "/add/tag";
     public static final String ID = "/{id}";
     public static final String COMPANY = "/company";
     public static final String V_COMPANY = VERSION + COMPANY;
@@ -27,6 +30,9 @@ public class Push11EndpointPaths {
     public static final String ACTION = "/action";
     public static final String NEW_ACTION = ACTION + NEW;
     public static final String V_ACTION = VERSION + ACTION;
-
+    public static final String EVENT = "/event";
+    public static final String NAMES = "/names";
+    public static final String VALUES = "/values";
+    public static final String V_EVENT = VERSION + EVENT;
 
 }

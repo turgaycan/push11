@@ -23,7 +23,11 @@ public class ActionDataController {
 
     @RequestMapping(value = Push11EndpointPaths.NOTIFY, method = RequestMethod.POST)
     @ResponseStatus(org.springframework.http.HttpStatus.NO_CONTENT)
-    public Action getActionFindByActionAndRegId(@RequestBody RequestNotifyPushModel notifyPushModeld) {
-        return actionService.getActionFindByActionAndRegId(notifyPushModeld.getActionGroupId(), notifyPushModeld.getRegistrationId());
+    public void notifyAction(@RequestBody RequestNotifyPushModel notifyPushModeld) {
+        Action action = actionService.getActionFindByActionAndRegId(notifyPushModeld.getActionGroupId(), notifyPushModeld.getRegistrationId());
+        if (action != null) {
+            action.setOpened(true);
+            actionService.save(action);
+        }
     }
 }

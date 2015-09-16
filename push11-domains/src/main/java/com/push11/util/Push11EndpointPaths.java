@@ -17,6 +17,7 @@ public class Push11EndpointPaths {
     public static final String ALL = "/all";
     public static final String NOTIFY = "/notify";
     public static final String SET_TAG = "/set/tag";
+    public static final String GET_TAGS = "/get/tags";
     public static final String ADD_TAG = "/add/tag";
     public static final String ID = "/{id}";
     public static final String COMPANY = "/company";

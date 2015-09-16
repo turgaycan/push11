@@ -38,6 +38,10 @@ public class UserService {
         return Lists.newArrayList(userRepository.findUsersByBuyerId(userIdList));
     }
 
+    public List<User> getUsersFindByApp(String appId) {
+        return userRepository.getUsersFindByApp(appId);
+    }
+
     public List<String> convertUserToRegistrationIds(List<User> users) {
         List<String> registrationIds = Lists.newArrayList();
         users.forEach(each -> registrationIds.add(each.getRegistrationId()));

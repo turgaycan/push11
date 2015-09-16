@@ -29,11 +29,9 @@ public class EventController {
     public
     @ResponseBody
     List<Event> getAllEvents(@RequestBody Application app) {
-
         if (app == null) {
             return new ArrayList<>();
         }
-
         return service.getEventsByApp(app.getApplicationId());
     }
 
@@ -41,15 +39,11 @@ public class EventController {
     public
     @ResponseBody
     List<String> getEventKeys(@RequestBody GetEventKeysRequestModel request) {
-
         Set<String> eventKeySet = new HashSet<>();
         List<Event> eventList = service.getEventsFindByAppAndEventName(request.getApp().getApplicationId(), request.getEventName());
-
-
         for (Event event : eventList) {
             eventKeySet.addAll(event.getEventValues().keySet());
         }
-
         return new ArrayList<>(eventKeySet);
     }
 
@@ -73,14 +67,12 @@ public class EventController {
     public
     @ResponseBody
     void newEvent(@RequestBody ReqSaveEventRequestModel reqEvent) {
-
         User user = userService.findUserByRegistrationId(reqEvent.getPushId());
         Event event = new Event();
         event.setUser(user);
         event.setCreateDate(new Date());
         event.setName(reqEvent.getEventName());
         event.setEventValues(reqEvent.getEventValues());
-
         service.saveEvent(event);
     }
 

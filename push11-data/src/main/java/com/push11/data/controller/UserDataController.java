@@ -1,6 +1,8 @@
 package com.push11.data.controller;
 
 import com.push11.data.service.UserService;
+import com.push11.domain.Application;
+import com.push11.domain.Event;
 import com.push11.domain.User;
 import com.push11.model.request.ReqTagsModel;
 import com.push11.model.request.ReqUpdateMemberIdModel;
@@ -80,4 +82,20 @@ public class UserDataController {
         user.setTagList(Arrays.asList(set.toArray(new String[set.size()])));
         userService.saveEntity(user);
     }
+
+    @RequestMapping(value = Push11EndpointPaths.GET_TAGS, method = RequestMethod.POST)
+    public
+    @ResponseBody
+    List<String> getAllTags(@RequestBody Application app) {
+        if (app == null) {
+            return new ArrayList<>();
+        }
+        List<User> userList = userService.getUsersFindByApp(app.getApplicationId());
+        Set<String> tagSet = new HashSet<>();
+        for (User user : userList) {
+            tagSet.addAll(user.getTagList());
+        }
+        return new ArrayList<>(tagSet);
+    }
+
 }

@@ -48,6 +48,7 @@ public class PushDataController {
             action.setSucceed(pushResultMap.get(user.getRegistrationId()));
             action.setActionType(ActionType.PUSH);
             action.setActionGroupId(actionGroupId);
+            action.setCampaign(sendPushRequest.getCampaign());
             actionList.add(action);
         }
         actionService.saveActions(actionList);

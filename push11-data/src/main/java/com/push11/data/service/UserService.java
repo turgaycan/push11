@@ -2,13 +2,12 @@ package com.push11.data.service;
 
 import com.google.common.collect.Lists;
 import com.push11.data.repository.UserRepository;
-import com.push11.domain.User;
-import com.push11.model.request.ReqUpdateMemberIdModel;
+import com.push11.domain.document.User;
+import com.push11.domain.model.request.ReqUpdateMemberIdModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class UserService {

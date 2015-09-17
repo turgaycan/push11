@@ -1,17 +1,14 @@
 package com.push11.data.controller;
 
-import com.google.common.collect.Lists;
 import com.push11.data.service.ActionService;
 import com.push11.data.service.Push11ManagerService;
 import com.push11.data.service.UserService;
-import com.push11.domain.Action;
-import com.push11.domain.User;
-import com.push11.manager.Push11Manager;
+import com.push11.domain.document.Action;
+import com.push11.domain.document.User;
 import com.push11.manager.Push11NotificationConstants;
-import com.push11.manager.Push11NotificationManager;
-import com.push11.model.ActionType;
-import com.push11.model.request.SendPushRequest;
-import com.push11.util.Push11EndpointPaths;
+import com.push11.domain.model.ActionType;
+import com.push11.domain.model.request.SendPushRequest;
+import com.push11.domain.util.Push11EndpointPaths;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,7 +28,6 @@ public class PushDataController {
 
     @Autowired
     private ActionService actionService;
-
 
     @RequestMapping(value = Push11EndpointPaths.NEW, method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.NO_CONTENT)

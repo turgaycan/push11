@@ -1,6 +1,6 @@
 package com.push11.validator;
 
-import com.push11.domain.Application;
+import com.push11.domain.document.Application;
 import com.push11.exception.custom.ErrorCode;
 import com.push11.exception.custom.Push11Exception;
 import org.springframework.validation.Errors;

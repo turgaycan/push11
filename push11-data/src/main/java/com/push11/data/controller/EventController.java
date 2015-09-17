@@ -2,14 +2,13 @@ package com.push11.data.controller;
 
 import com.push11.data.service.EventService;
 import com.push11.data.service.UserService;
-import com.push11.domain.Application;
-import com.push11.domain.Event;
-import com.push11.domain.User;
-import com.push11.model.request.GetEventKeysRequestModel;
-import com.push11.model.request.GetEventValuesForKeyRequestModel;
-import com.push11.model.request.ReqSaveEventRequestModel;
-import com.push11.model.request.SendPushRequest;
-import com.push11.util.Push11EndpointPaths;
+import com.push11.domain.document.Application;
+import com.push11.domain.document.Event;
+import com.push11.domain.document.User;
+import com.push11.domain.model.request.GetEventKeysRequestModel;
+import com.push11.domain.model.request.GetEventValuesForKeyRequestModel;
+import com.push11.domain.model.request.ReqSaveEventRequestModel;
+import com.push11.domain.util.Push11EndpointPaths;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

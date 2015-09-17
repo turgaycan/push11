@@ -1,8 +1,9 @@
 package com.push11.data.repository;
 
-import com.push11.data.repository.core.AbstractIntegration;
-import com.push11.domain.User;
+import com.push11.data.config.DefaultTest;
+import com.push11.domain.document.User;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,7 +11,9 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-public class UserRepositoryTest extends AbstractIntegration {
+@Ignore
+@DefaultTest
+public class UserRepositoryTest {
 
     @Autowired
     private UserRepository repository;

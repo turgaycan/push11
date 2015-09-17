@@ -9,8 +9,8 @@
 
     <artifactId>push11-engine</artifactId>
     <packaging>jar</packaging>
-
     <name>push11-engine</name>
+    <url>http://maven.apache.org</url>
 
     <properties>
         <gcm-server.version>1.0.2</gcm-server.version>
@@ -18,7 +18,6 @@
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>com.ganyo</groupId>
             <artifactId>gcm-server</artifactId>

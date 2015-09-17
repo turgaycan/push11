@@ -1,12 +1,11 @@
 package com.push11.data.controller;
 
 import com.push11.data.service.UserService;
-import com.push11.domain.Application;
-import com.push11.domain.Event;
-import com.push11.domain.User;
-import com.push11.model.request.ReqTagsModel;
-import com.push11.model.request.ReqUpdateMemberIdModel;
-import com.push11.util.Push11EndpointPaths;
+import com.push11.domain.document.Application;
+import com.push11.domain.document.User;
+import com.push11.domain.model.request.ReqTagsModel;
+import com.push11.domain.model.request.ReqUpdateMemberIdModel;
+import com.push11.domain.util.Push11EndpointPaths;
 import com.push11.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

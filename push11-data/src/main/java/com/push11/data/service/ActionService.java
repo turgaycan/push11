@@ -1,9 +1,9 @@
 package com.push11.data.service;
 
 import com.push11.data.repository.ActionRepository;
-import com.push11.domain.Action;
-import com.push11.domain.User;
-import com.push11.model.ActionType;
+import com.push11.domain.document.Action;
+import com.push11.domain.document.User;
+import com.push11.domain.model.ActionType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

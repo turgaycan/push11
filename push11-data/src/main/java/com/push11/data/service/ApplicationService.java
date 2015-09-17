@@ -1,7 +1,7 @@
 package com.push11.data.service;
 
 import com.push11.data.repository.ApplicationRepository;
-import com.push11.domain.Application;
+import com.push11.domain.document.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

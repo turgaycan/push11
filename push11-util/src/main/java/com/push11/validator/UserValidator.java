@@ -1,6 +1,6 @@
 package com.push11.validator;
 
-import com.push11.domain.User;
+import com.push11.domain.document.User;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 

@@ -1,7 +1,7 @@
 package com.push11.data.service;
 
 import com.push11.data.repository.ApplicationEventRepository;
-import com.push11.domain.ApplicationEvent;
+import com.push11.domain.document.ApplicationEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

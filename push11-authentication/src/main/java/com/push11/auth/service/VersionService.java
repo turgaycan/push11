@@ -2,7 +2,7 @@ package com.push11.auth.service;
 
 import com.push11.exception.custom.ErrorCode;
 import com.push11.exception.custom.Push11VersionException;
-import com.push11.model.version.Version;
+import com.push11.domain.model.version.Version;
 import com.push11.validator.Push11RegexValidator;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.InitializingBean;
@@ -17,7 +17,7 @@ public class VersionService implements InitializingBean {
     private static final String VERSION_REGEX = "[v][0-9].[0-9]$";
     private static final String BACKSLASH_REGEX = "/";
 
-    private Map<String, Version> versions = new HashMap<>();
+    private Map<String, Version> versions = new HashMap<String, Version>();
     private Version latestVersion = new Version("v3.0", 3.0, true);
 
     @Override

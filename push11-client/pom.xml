@@ -11,7 +11,7 @@
     <artifactId>push11-client</artifactId>
     <packaging>jar</packaging>
     <version>1.0</version>
-
+    <url>http://maven.apache.org</url>
     <dependencies>
         <!-- Projects -->
         <dependency>

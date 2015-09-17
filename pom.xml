@@ -8,6 +8,7 @@
     <artifactId>push11-parent</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
+    <url>http://maven.apache.org</url>
     <modules>
         <module>push11-domains</module>
         <module>push11-client</module>
@@ -19,9 +20,12 @@
         <module>push11-batch</module>
     </modules>
     <properties>
+        <main.basedir>${basedir}</main.basedir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
         <push.version>1.0</push.version>
+        <spring-boot-dependencies.version>1.2.5.RELEASE</spring-boot-dependencies.version>
+        <spring-boot-autoconfigure.version>1.2.5.RELEASE</spring-boot-autoconfigure.version>
         <junit.version>4.11</junit.version>
         <slf4j.version>1.7.7</slf4j.version>
         <commons-collections.version>3.2.1</commons-collections.version>
@@ -53,9 +57,18 @@
         <commons-validator.version>1.4.1</commons-validator.version>
     </properties>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.2.5.RELEASE</version>
+    </parent>
 
     <dependencies>
         <!-- UTILS-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>

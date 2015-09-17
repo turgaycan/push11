@@ -1,8 +1,8 @@
 package com.push11.data.controller;
 
 import com.push11.data.service.ApplicationService;
-import com.push11.domain.Application;
-import com.push11.util.Push11EndpointPaths;
+import com.push11.domain.document.Application;
+import com.push11.domain.util.Push11EndpointPaths;
 import com.push11.validator.ApplicationValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.WebDataBinder;

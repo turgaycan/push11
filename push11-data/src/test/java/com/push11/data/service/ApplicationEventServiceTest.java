@@ -1,6 +1,6 @@
 package com.push11.data.service;
 
-import com.push11.domain.ApplicationEvent;
+import com.push11.domain.document.ApplicationEvent;
 import com.push11.data.repository.ApplicationEventRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;

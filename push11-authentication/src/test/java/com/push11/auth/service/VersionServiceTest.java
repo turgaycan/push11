@@ -3,7 +3,7 @@ package com.push11.auth.service;
 
 import com.push11.exception.custom.ErrorCode;
 import com.push11.exception.custom.Push11VersionException;
-import com.push11.model.version.Version;
+import com.push11.domain.model.version.Version;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

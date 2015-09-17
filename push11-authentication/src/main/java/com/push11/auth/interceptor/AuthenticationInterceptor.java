@@ -1,7 +1,9 @@
 package com.push11.auth.interceptor;
 
 import com.push11.auth.service.VersionService;
-import com.push11.util.Authorization;
+import com.push11.domain.util.Authorization;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AuthenticationInterceptor implements HandlerInterceptor {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(AuthenticationInterceptor.class);
     @Autowired
     private VersionService versionService;
 
@@ -30,8 +33,10 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest req, HttpServletResponse res, Object arg2) throws Exception {
 
+
         String versionId = req.getRequestURI();
 
+        LOGGER.info("Handler in versionId : {}", versionId);
 
         versionService.validateAndFindVersion(versionId);
 

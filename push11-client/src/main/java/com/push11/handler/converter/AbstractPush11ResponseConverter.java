@@ -2,9 +2,9 @@ package com.push11.handler.converter;
 
 
 import com.google.gson.Gson;
-import com.push11.domain.AbstractDocument;
+import com.push11.domain.document.AbstractDocument;
 import com.push11.handler.base.AbstractPush11ResponseHandler;
-import com.push11.model.base.BaseModel;
+import com.push11.domain.model.base.BaseModel;
 import org.apache.http.HttpEntity;
 import java.io.IOException;
 import java.io.Reader;

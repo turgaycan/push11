@@ -1,8 +1,8 @@
 package com.push11.data.controller;
 
 import com.push11.data.service.CompanyService;
-import com.push11.domain.Company;
-import com.push11.util.Push11EndpointPaths;
+import com.push11.domain.document.Company;
+import com.push11.domain.util.Push11EndpointPaths;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

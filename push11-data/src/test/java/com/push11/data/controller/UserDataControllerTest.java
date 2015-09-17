@@ -1,7 +1,7 @@
 package com.push11.data.controller;
 
 import com.push11.data.service.UserService;
-import com.push11.domain.User;
+import com.push11.domain.document.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;

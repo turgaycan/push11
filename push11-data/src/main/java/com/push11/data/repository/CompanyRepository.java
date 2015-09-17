@@ -1,7 +1,7 @@
 package com.push11.data.repository;
 
 
-import com.push11.domain.Company;
+import com.push11.domain.document.Company;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 

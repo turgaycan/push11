@@ -14,7 +14,7 @@
 
     <properties>
         <start-class>com.push11.domain.config.Push11DomainConfig</start-class>
-        <hibernate-validator.version>5.2.1.Final</hibernate-validator.version>
+        <hibernate-validator.version>5.2.5.Final</hibernate-validator.version>
     </properties>
 
 

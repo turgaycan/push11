@@ -17,7 +17,7 @@
         <kafka_2.10.version>0.8.2.1</kafka_2.10.version>
         <spring-integration-kafka.version>1.2.1.RELEASE</spring-integration-kafka.version>
         <spring-integration-java-dsl.version>1.1.0.M1</spring-integration-java-dsl.version>
-        <spring-boot.version>1.2.3.RELEASE</spring-boot.version>
+        <spring-boot.version>2.2.11.RELEASE</spring-boot.version>
         <zookeeper.version>3.4.6</zookeeper.version>
         <spring-ntegration.version>4.2.0.RC1</spring-ntegration.version>
     </properties>
